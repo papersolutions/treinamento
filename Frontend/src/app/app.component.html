@@ -1,1 +1,27 @@
-<router-outlet>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
+    <img width="15%" src="../assets/Images/Paper Logo Completo Branco.png"/>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-drawer-container [hasBackdrop]="true">
+  <mat-drawer #drawer mode="over" style="min-width: 20%;">
+    <mat-card>
+      <mat-card-content class = "menu">
+        <button class = "menuItem" mat-button routerLink="/" (click)="drawer.toggle()">
+        <mat-icon>home</mat-icon> <span>Home</span>
+        </button>
+        <button class = "menuItem" mat-button routerLink="/users" (click)="drawer.toggle()">
+        <mat-icon>person</mat-icon><span>Usuários</span>
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-card style="min-height: fit-content;">
+      <mat-card-content>
+        <router-outlet></router-outlet>
+      </mat-card-content>
+    </mat-card>
+  </mat-drawer-content>
+</mat-drawer-container>
