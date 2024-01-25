@@ -1,24 +1,39 @@
-<table mat-table [dataSource]="data" class="mat-elevation-z8">
-    <ng-container matColumnDef="id">
-     <th mat-header-cell *matHeaderCellDef> ID. </th>
-     <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-   </ng-container>
-    <ng-container matColumnDef="name">
-     <th mat-header-cell *matHeaderCellDef> Nome </th>
-     <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
-   </ng-container>
-   <ng-container matColumnDef="login">
-     <th mat-header-cell *matHeaderCellDef> Login </th>
-     <td mat-cell *matCellDef="let element"> {{element.login}} </td>
-   </ng-container>
-   <ng-container matColumnDef="created">
-     <th mat-header-cell *matHeaderCellDef> Criado Em </th>
-     <td mat-cell *matCellDef="let element"> {{element.criado}} </td>
-   </ng-container>
-   <ng-container matColumnDef="modified">
-     <th mat-header-cell *matHeaderCellDef> Alterado Em </th>
-     <td mat-cell *matCellDef="let element"> {{element.alterado}} </td>
-   </ng-container>
- <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
- <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
- </table>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>{{title}}</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="data" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID. </th>s
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+      </ng-container>
+      <ng-container matColumnDef="login">
+        <th mat-header-cell *matHeaderCellDef> Login </th>
+        <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+      </ng-container>
+      <ng-container matColumnDef="created">
+        <th mat-header-cell *matHeaderCellDef> Criado Em </th>
+        <td mat-cell *matCellDef="let element"> {{element.criado}} </td>
+      </ng-container>
+      <ng-container matColumnDef="modified">
+        <th mat-header-cell *matHeaderCellDef> Alterado Em </th>
+        <td mat-cell *matCellDef="let element"> {{element.alterado}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+    </table>
+  </mat-card-content>
+  <mat-card-content>
+    <mat-card-actions>
+      Encontrado {{data.length}} registros.
+    </mat-card-actions>
+  </mat-card-content>
+
+</mat-card>
