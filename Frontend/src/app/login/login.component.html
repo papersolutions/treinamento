@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Cadastrar Usuário</mat-card-title> 
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <mat-form-field>
+                <input matInput placeholder="Nome" [(ngModel)]="user.name" name="name">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Email" [(ngModel)]="user.email" name="email">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="submitForm()">Cadastrar</button>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,6 +1,10 @@
-mat-card-content.menu{
-   display: flex; 
+mat-card-content.menu {
+   display: flex;
    flex-direction: column;
 }
 
-button.menuItem {  display: flex; justify-content: left; margin-bottom: 2px;} 
+button.menuItem {
+   display: flex;
+   justify-content: left;
+   margin-bottom: 2px;
+}
