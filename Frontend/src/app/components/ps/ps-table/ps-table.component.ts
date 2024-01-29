@@ -11,7 +11,7 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './ps-table.component.css'
 })
 export class PsTableComponent {
-  @Input() data: User[] = [];
+  @Input() data: any[] = [];
   @Input() title = '';
-  columnsToDisplay: string[] = ['id', 'name', 'login', 'created','modified'];
+  @Input() columnsToDisplay: string[] = [];
 }
