@@ -1,17 +1,17 @@
 import { Component, Input } from '@angular/core';
-import { User } from '../../../models/user';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-ps-table',
   standalone: true,
-  imports: [MatTableModule, MatCardModule],
+  imports: [MatTableModule, MatCardModule, CommonModule],
   templateUrl: './ps-table.component.html',
   styleUrl: './ps-table.component.css'
 })
 export class PsTableComponent {
-  @Input() data: any[] = [];
+  @Input() dataSource: any[] = [];
   @Input() title = '';
   @Input() columnsToDisplay: string[] = [];
 }
