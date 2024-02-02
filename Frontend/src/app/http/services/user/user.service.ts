@@ -21,7 +21,7 @@ export class UserService {
 
   getUser(id:number)
   {
-    return this.httpClient.get<User>(`${this.url}/${this.version}/user/${id}`)
+    return this.httpClient.get<User[]>(`${this.url}/${this.version}/user/${id}`)
   }
 
   createUser(user: User)
@@ -33,7 +33,11 @@ export class UserService {
   {
     return this.httpClient.put<User>(`${this.url}/${this.version}/user/${user.id}`, user)
   }
-
+  
+  deleteUser(id: number)
+  {
+    return this.httpClient.delete<User>(`${this.url}/${this.version}/users/${id}`)
+  }
 
 
 }
