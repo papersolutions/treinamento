@@ -24,7 +24,7 @@ namespace MinimalAPITeste.Controllers
         [Route("user/{id}")]
         public async Task<IActionResult> GetByIDAsync([FromServices] AppDbContext context, int id)
         {
-            var entity = await context.Users.Where(x => x.Id == id).AsNoTracking().FirstOrDefaultAsync();
+            var entity = await context.Users.Where(x => x.Id == id).AsNoTracking().ToListAsync();
             return entity == null ? NotFound() : Ok(entity);
         }
 
@@ -91,7 +91,7 @@ namespace MinimalAPITeste.Controllers
             }
         }
 
-        [HttpDelete("entity/{id}")]
+        [HttpDelete("users/{id}")]
         public async Task<IActionResult> DeleteAsync([FromServices] AppDbContext context, [FromRoute] int id)
         {
             var entity = await context.Users.FindAsync(id);
