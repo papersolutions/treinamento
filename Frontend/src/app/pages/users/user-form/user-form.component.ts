@@ -36,23 +36,29 @@ export class UserFormComponent {
     }
   }
 
-  buscarUsuario(id: number)
+  async buscarUsuario(id: number)
   {
-    this.userService.getUser(id).subscribe(res => this.user = res)
+    await this.userService.getUser(id).then( 
+    promise => promise.subscribe(res => this.user = res[0])
+    )
   }
 
-  criarUsuario()
+  async criarUsuario()
   {
-    this.userService.createUser(this.user).subscribe(
+    await this.userService.createUser(this.user).then(
+    promise => promise.subscribe(
       response => console.log("Usuário Criado: ", response)
+    )
     );
   }
 
-  alterarUsuario()
+  async alterarUsuario()
   {
-    this.userService.modifyUser(this.user).subscribe(
-    response => console.log("Usuário alterado: ", response)
-    );
+    await this.userService.modifyUser(this.user).then(
+    response => response.subscribe(
+    res => console.log("Usuário alterado: ", res)
+    )
+    )
   }
 }
 

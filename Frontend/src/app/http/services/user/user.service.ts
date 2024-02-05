@@ -14,27 +14,27 @@ export class UserService {
   constructor(private httpClient: HttpClient) { 
   }
 
-  getAllUsers()
+  async getAllUsers()
   {
     return this.httpClient.get<User[]>(`${this.url}/${this.version}/user`)
   }
 
-  getUser(id:number)
+  async getUser(id:number)
   {
     return this.httpClient.get<User[]>(`${this.url}/${this.version}/user/${id}`)
   }
 
-  createUser(user: User)
+  async createUser(user: User)
   {
     return this.httpClient.post<User>(`${this.url}/${this.version}/user`, user)
   }
 
-  modifyUser(user: User)
+  async modifyUser(user: User)
   {
     return this.httpClient.put<User>(`${this.url}/${this.version}/user/${user.id}`, user)
   }
   
-  deleteUser(id: number)
+  async deleteUser(id: number)
   {
     return this.httpClient.delete<User>(`${this.url}/${this.version}/users/${id}`)
   }

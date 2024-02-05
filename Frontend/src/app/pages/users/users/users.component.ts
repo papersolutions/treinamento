@@ -24,9 +24,10 @@ export class UsersComponent {
   {
     this.buscarTodosUsuarios();
   }
-  buscarTodosUsuarios(){
-    this.userService.getAllUsers().subscribe(response => this.users = response)
-    console.log(this.users)
+  async buscarTodosUsuarios(){
+    await this.userService.getAllUsers().then(
+    promise =>promise.subscribe(response => this.users = response)
+    )
   }
 
 }
