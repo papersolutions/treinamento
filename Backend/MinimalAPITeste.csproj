@@ -20,6 +20,13 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="DLL\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PaperSolutions.Security">
+      <HintPath>DLL\PaperSolutions.Security.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
