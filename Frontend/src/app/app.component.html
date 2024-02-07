@@ -2,6 +2,18 @@
   <mat-toolbar-row>
     <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
     <img width="15%" src="../assets/Images/Paper Logo Completo Branco.png" />
+    <span class="spacer"></span>
+    <ng-container *ngIf="!isLoggedIn()"> 
+      <button class="menuItem" mat-button  (click)="login()">
+      <mat-icon>login</mat-icon><span>Login</span>
+      </button>
+    </ng-container>
+    <ng-container *ngIf="isLoggedIn()"> 
+      <span>{{username}}</span>
+      <button class="menuItem" mat-icon-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </ng-container>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-drawer-container [hasBackdrop]="true">
