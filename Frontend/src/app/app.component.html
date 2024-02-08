@@ -26,22 +26,31 @@
           <mat-icon>home</mat-icon> <span>Home</span>
         </button>
 
+        <button class="menuItem" mat-button routerLink="/login-flavia">
+          <mat-icon>home</mat-icon> <span>Home (Flávia)</span>
+        </button>
+
         <button class="menuItem" mat-button routerLink="/users" (click)="drawer.toggle()">
           <mat-icon>person</mat-icon><span>Usuários</span>
         </button>
 
-        <button class="menuItem" mat-button routerLink="/cadastro" (click)="drawer.toggle()">
+        <button class="menuItem" mat-button routerLink="/cadastro-flavia" (click)="drawer.toggle()">
           <mat-icon>person_add</mat-icon> <span>Cadastro de Usuário (Flávia)</span>
         </button>
 
-        <button class="menuItem" mat-button routerLink="/user-modify" (click)="drawer.toggle()">
+        <button class="menuItem" mat-button routerLink="/user-modify-flavia" (click)="drawer.toggle()">
           <mat-icon>person</mat-icon> <span>Consultar Usuário (Flávia)</span>
         </button>
+
+        <button class="menuItem" mat-button routerLink="/users/create" (click)="drawer.toggle()">
+          <mat-icon>person</mat-icon> <span>Criar Usuário (Erick)</span>
+        </button>
+
       </mat-card-content>
     </mat-card>
   </mat-drawer>
   <mat-drawer-content>
-    <mat-card style="min-height: fit-content;">
+    <mat-card class="container">
       <mat-card-content>
         <router-outlet></router-outlet>
       </mat-card-content>

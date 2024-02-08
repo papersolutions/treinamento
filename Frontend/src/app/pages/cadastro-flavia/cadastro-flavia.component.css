@@ -2,9 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75vh;
-  width: 100%;
 }
+/*Flávia, apliquei as outras propriedades do container globalmente (app.component.css), 
+e ai resolveu o problema do matDrawer ficar pequeno. 
+deixei aqui só as tags de centralização que não encaixam nas outras aplicações
+*/
 
 mat-card {
   max-width: 500px;

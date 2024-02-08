@@ -10,14 +10,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { UserService } from '../../http/services/user/user.service';
 
 @Component({
-  selector: 'app-cadastro',
+  selector: 'app-cadastro-flavia',
   standalone: true,
   imports: [FormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatDialogModule],
   providers: [UserService],
-  templateUrl: './cadastro.component.html',
-  styleUrl: './cadastro.component.css'
+  templateUrl: './cadastro-flavia.component.html',
+  styleUrl: './cadastro-flavia.component.css'
 })
-export class CadastroComponent {
+export class CadastroFlaviaComponent {
   user = {} as User;
 
   constructor(private userService: UserService) {

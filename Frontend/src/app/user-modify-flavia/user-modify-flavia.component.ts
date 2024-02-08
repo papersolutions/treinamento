@@ -9,14 +9,14 @@ import { User } from '../models/user';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'app-user-modify',
+  selector: 'app-user-modify-flavia',
   standalone: true,
   imports: [MatButtonModule, MatCardModule, FormsModule, MatFormFieldModule, PsTableComponent, MatInputModule],
   providers: [UserService],
-  templateUrl: './user-modify.component.html',
-  styleUrl: './user-modify.component.css'
+  templateUrl: './user-modify-flavia.component.html',
+  styleUrl: './user-modify-flavia.component.css'
 })
-export class UserModifyComponent {
+export class UserModifyFlaviaComponent {
   id: number = 0;
   user: User = new User();
   arrayUsers: User[] = [];
