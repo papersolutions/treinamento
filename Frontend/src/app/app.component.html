@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+ <mat-toolbar color="primary">
   <mat-toolbar-row>
     <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
     <img width="15%" src="../assets/Images/Paper Logo Completo Branco.png" />
@@ -16,7 +16,8 @@
     </ng-container>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-drawer-container [hasBackdrop]="true">
+
+  <mat-drawer-container [hasBackdrop]="true">
 
   <mat-drawer #drawer mode="over" style="min-width: 20%;">
     <mat-card>
@@ -49,6 +50,7 @@
       </mat-card-content>
     </mat-card>
   </mat-drawer>
+
   <mat-drawer-content>
     <mat-card class="container">
       <mat-card-content>
@@ -56,4 +58,6 @@
       </mat-card-content>
     </mat-card>
   </mat-drawer-content>
-</mat-drawer-container>
+
+
+</mat-drawer-container> 

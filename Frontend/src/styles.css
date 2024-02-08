@@ -1,3 +1,39 @@
+html, body {
+    margin: 0;
+    background: linear-gradient(to right, #f5f3f3, #a1add3);
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    
+}
 
-html, body { height: 100%;}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.container {
+    height: 91vh;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    background-color: transparent;
+}
+
+app-root .mat-drawer-container { background-color: transparent; }        
+app-root .mat-mdc-card { background-color: transparent; }
+
+ 
+ .container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ mat-card-content.menu {
+    display: flex;
+    flex-direction: column;
+ }
+ 
+ button.menuItem {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 2px;
+ }
+ 
+ .spacer {
+    flex: 1 1 auto;
+ }
