@@ -8,12 +8,12 @@ import { PsTableComponent } from '../../../components/ps/ps-table/ps-table.compo
 import { UserService } from '../../../http/services/user/user.service';
 import { User } from '../../../models/user';
 import { TesteComponent } from '../teste/teste.component';
-import { UsersAlterComponent } from '../user-alter/user-alter.component';
+
 
 @Component({
   selector: 'app-users-modify',
   standalone: true,
-  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule, PsTableComponent, TesteComponent, UsersAlterComponent, ReactiveFormsModule,],
+  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule, PsTableComponent, TesteComponent, ReactiveFormsModule,],
   providers:[UserService],
   templateUrl: './users-modify.component.html',
   styleUrl: './users-modify.component.css'
