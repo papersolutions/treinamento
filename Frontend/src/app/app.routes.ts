@@ -10,7 +10,7 @@ export const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: 'user-form',
+        path: 'users',
         component: UsersComponent,
     },
     {
