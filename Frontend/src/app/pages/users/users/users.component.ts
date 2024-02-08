@@ -5,8 +5,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { PsTableComponent } from '../../../components/ps/ps-table/ps-table.component';
 
-
-
 @Component({
   selector: 'app-users',
   standalone: true,
@@ -29,5 +27,4 @@ export class UsersComponent {
     promise =>promise.subscribe(response => this.users = response)
     )
   }
-
 }

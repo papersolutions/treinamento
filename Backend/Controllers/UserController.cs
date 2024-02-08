@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using MeuTodo.Models;
+using PaperSolutions.Security;
 
 namespace MinimalAPITeste.Controllers
 {
@@ -40,7 +41,7 @@ namespace MinimalAPITeste.Controllers
             {
                 Nome = model.Nome,
                 Login = model.Login,
-                Senha = model.Senha,
+                Senha = Criptografia.Criptografar(model.Senha),
                 Criado = DateTime.Now
             };
 

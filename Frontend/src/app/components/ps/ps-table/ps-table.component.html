@@ -16,10 +16,7 @@
       <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
       <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
     </mat-table>
-  </mat-card-content>
-
-  <mat-card-content style="display: flex; justify-content: flex-start; padding-top: 15px;">
-    <mat-paginator [length]="dataSource.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    
   </mat-card-content>
 
   <mat-card-content>

@@ -1,6 +1,7 @@
 mat-card-content.menu {
    display: flex;
    flex-direction: column;
+   
 }
 
 button.menuItem {

@@ -1,0 +1,47 @@
+mat-card {
+    max-width: 400px;
+  }
+  
+  mat-card-header {
+    background-color: #3F51B5;
+    color: white;
+    padding-bottom: 14px;
+    font-size: 15px;
+  }
+
+  mat-card-content {
+    display: flex;
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  form {
+    width: 100%;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+  button + button {
+    margin-left: 10px;
+  }
+  
+  button[color="primary"] {
+    background-color:#3F51B5;
+    color: white;
+  }
+  
+  mat-input {
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color:#3f51b5e0;
+  }
+  

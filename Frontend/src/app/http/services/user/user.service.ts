@@ -39,5 +39,4 @@ export class UserService {
     return this.httpClient.delete<User>(`${this.url}/${this.version}/users/${id}`)
   }
 
-
 }

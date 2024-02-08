@@ -6,12 +6,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { User } from '../../../models/user';
 import { UserService } from '../../../http/services/user/user.service';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-user-form',
   standalone: true,
-  imports: [FormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [FormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, RouterLink],
   providers: [UserService],
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.css'
