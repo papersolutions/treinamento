@@ -1,0 +1,19 @@
+.testeCSS {
+	border-top: 2px dotted #ccc; 
+	border-left: 2px dotted #ccc; 
+	border-right: 2px dotted #ccc; 
+	border-bottom: 2px dotted #ccc; 
+    width: 150px;
+    height: 200px;
+    position: fixed;
+    z-index: 1002;
+	left: 1100px;
+    top: 10rem;
+    background-color: red;
+    border-radius: 10px;
+    font-family: Tahoma;
+	font-size: 13px;
+	color: #FFF;
+	text-align: center;
+	padding: 5px;
+}
