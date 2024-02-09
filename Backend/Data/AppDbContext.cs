@@ -1,12 +1,20 @@
-﻿using MeuTodo.Models;
+﻿using MinimalAPITeste.Models;
 using Microsoft.EntityFrameworkCore;
-using MinimalAPITeste.Models;
+using Microsoft.Extensions.Configuration;
+
 namespace MinimalAPITeste.Data
 {
     public class AppDbContext: DbContext
     {
+        private readonly IConfiguration _configuration;
         public DbSet<Mill> Mills { get; set; }
         public DbSet<User> Users { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlServer("Server=ACER-ERICK\\ACER_ERICK;Database=paperteste;User Id=paper;Password=paper;TrustServerCertificate=True");
+
+        public AppDbContext(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlServer(_configuration.GetConnectionString("localDb"));
     }
 }

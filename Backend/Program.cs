@@ -12,6 +12,7 @@ builder.Services.AddCors(options =>
                       });
 });
 
+builder.Configuration.AddJsonFile("appsettings.json");
 builder.Services.AddDbContext<AppDbContext>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -21,5 +22,9 @@ app.UseRouting();
 app.UseCors(MyAllowSpecificOrigins);
 app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Projeto Treinamento");
+    c.RoutePrefix = "";
+});
 app.Run();
