@@ -7,6 +7,7 @@ import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { UsersModifyComponent } from './pages/users/users-modify/users-modify.component';
 import { TesteComponent } from './pages/users/teste/teste.component';
 import { LoginFlaviaComponent } from './pages/login-flavia/login-flavia.component';
+import { MillFlaComponent } from './mill-fla/mill-fla.component';
 
 
 export const routes: Routes = [
@@ -41,5 +42,9 @@ export const routes: Routes = [
     {
         path: 'users-modify',
         component: UsersModifyComponent
+    },
+    {
+        path: 'mill-fla',
+        component: MillFlaComponent
     }
 ];
