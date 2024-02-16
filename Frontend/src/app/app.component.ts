@@ -11,6 +11,7 @@ import { MSAL_INSTANCE, MsalModule } from '@azure/msal-angular';
 import { AuthenticationResult, IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
 import { MsalService } from '@azure/msal-angular';
 import { CommonModule } from '@angular/common';
+import {MatTreeModule} from '@angular/material/tree';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
@@ -25,8 +26,8 @@ export function MSALInstanceFactory(): IPublicClientApplication {
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink, HttpClientModule, MatToolbarModule, 
-    MatIconModule, MatButtonModule, MatCardModule, MatSidenavModule, FormsModule,
-    MsalModule
+    MatIconModule, MatButtonModule, MatCardModule, MatSidenavModule, FormsModule, MatTreeModule,
+    MsalModule, 
   ],
   providers: [
     {
@@ -76,7 +77,16 @@ export class AppComponent implements OnInit{
   logout() {
     this.authService.logout()
   }
+  isUsersOpen: boolean = false;
+  isMillOpen: boolean = false;
 
+  toggleUsers() {
+    this.isUsersOpen = !this.isUsersOpen;
+  }
+
+  toggleMill() {
+    this.isMillOpen = !this.isMillOpen;
+  }
 }
 
 

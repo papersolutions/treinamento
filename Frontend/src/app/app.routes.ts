@@ -1,13 +1,16 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { UsersComponent } from './pages/users/users/users.component';
-import { UserModifyFlaviaComponent } from './user-modify-flavia/user-modify-flavia.component';
-import { CadastroFlaviaComponent } from './pages/cadastro-flavia/cadastro-flavia.component';
+import { UserModifyFlaviaComponent } from './UserFla/user-modify-flavia/user-modify-flavia.component';
+import { CadastroFlaviaComponent } from './UserFla/cadastro-flavia/cadastro-flavia.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { UsersModifyComponent } from './pages/users/users-modify/users-modify.component';
 import { TesteComponent } from './pages/users/teste/teste.component';
-import { LoginFlaviaComponent } from './pages/login-flavia/login-flavia.component';
-import { MillFlaComponent } from './mill-fla/mill-fla.component';
+import { LoginFlaviaComponent } from './UserFla/login-flavia/login-flavia.component';
+import { MillFlaInsertComponent } from './MillFla/mill-fla-insert/mill-fla-insert.component';
+import { MillFlaModAndDelComponent } from './MillFla/mill-fla-mod-and-del/mill-fla-mod-and-del.component';
+import { MillFlaSearchComponent } from './MillFla/mill-fla-search/mill-fla-search.component';
+import { MillFlaComponent } from './MillFla/mill-fla/mill-fla.component';
 
 
 export const routes: Routes = [
@@ -42,6 +45,18 @@ export const routes: Routes = [
     {
         path: 'users-modify',
         component: UsersModifyComponent
+    },
+    {
+        path: 'mill-fla-insert',
+        component: MillFlaInsertComponent
+    },
+    {
+        path: 'mill-fla-mod-and-del',
+        component: MillFlaModAndDelComponent
+    },
+    {
+        path: 'mill-fla-search',
+        component: MillFlaSearchComponent
     },
     {
         path: 'mill-fla',

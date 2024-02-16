@@ -1,6 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography.X509Certificates;
-
 namespace MinimalAPITeste.Models
 {
     public class MillFla
@@ -21,14 +19,12 @@ namespace MinimalAPITeste.Models
             ShortName = "";
             Criado = DateTime.Now;
         }
-
         public MillFla(string millId, string shortName)
         {
             Id = 0;
             MillId = millId;
             ShortName = shortName;
-            Criado = DateTime.Now; 
+            Criado = DateTime.Now;
         }
     }
-
 }

@@ -10,7 +10,7 @@ namespace MinimalAPITeste.Controllers
     public class MillControllerFla : ControllerBase
     {
         [HttpGet]
-        [Route("mill")]
+        [Route("millFla")]
         public async Task<IActionResult> GetAllMills([FromServices] AppDbContext db)
         {
             var allMills = await db.Mills.ToListAsync();
@@ -18,20 +18,20 @@ namespace MinimalAPITeste.Controllers
         }
 
         [HttpPost]
-        [Route("mill")]
+        [Route("millFla")]
         public async Task<IActionResult> InsertMill([FromServices] AppDbContext db, [FromBody] MillFla newMill)
         {
-            var mill = new MillFla();
+            MillFla mill = new MillFla();
             mill.MillId = newMill.MillId;
             mill.ShortName = newMill.ShortName;
 
-            await db.Mills.AddAsync(mill);
+            await db.MillsFla.AddAsync(mill);
             await db.SaveChangesAsync();
             return Ok(mill);
         }
 
         [HttpPut]
-        [Route("mill/{id}")]
+        [Route("millFla/{id}")]
         public async Task<IActionResult> UpdateMill([FromServices] AppDbContext db, [FromBody] MillFla updatedMill, [FromRoute] int id)
         {
             var originalMill = await db.Mills.FindAsync(id);
@@ -50,4 +50,4 @@ namespace MinimalAPITeste.Controllers
             }
         }
     }
-}
+    }

@@ -1,10 +1,10 @@
- <mat-toolbar color="primary">
+<mat-toolbar color="primary">
   <mat-toolbar-row>
     <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
     <img width="15%" src="../assets/Images/Paper Logo Completo Branco.png" />
     <span class="spacer"></span>
     <ng-container *ngIf="!isLoggedIn()">
-      <button class="menuItem" mat-button  (click)="login()">
+      <button class="menuItem" mat-button (click)="login()">
         <mat-icon>login</mat-icon><span>Login</span>
       </button>
     </ng-container>
@@ -17,33 +17,59 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-  <mat-drawer-container [hasBackdrop]="true">
 
+<mat-drawer-container [hasBackdrop]="true">
   <mat-drawer #drawer mode="over" style="min-width: 20%;">
     <mat-card>
-
+      
       <mat-card-content class="menu">
         <button class="menuItem" mat-button routerLink="/">
           <mat-icon>home</mat-icon> <span>Home</span>
         </button>
 
-        <button class="menuItem" mat-button routerLink="/login-flavia">
-          <mat-icon>home</mat-icon> <span>Home (Flávia)</span>
-        </button>
-
-        <button class="menuItem" mat-button routerLink="/users" (click)="drawer.toggle()">
+        <button class="menuItem" mat-button (click)="toggleUsers()">
           <mat-icon>person</mat-icon><span>Usuários</span>
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{isUsersOpen ? 'expand_less' : 'expand_more'}}
+          </mat-icon>
         </button>
+        <ng-container *ngIf="isUsersOpen">
+          <button class="menuItem subItem" mat-button routerLink="/users" (click)="drawer.toggle()">
+            <span style="padding-left: 70px;"> - Listar Usuários</span>
+          </button>
 
-        <button class="menuItem" mat-button routerLink="/cadastro-flavia" (click)="drawer.toggle()">
-          <mat-icon>person_add</mat-icon> <span>Cadastro de Usuário (Flávia)</span>
+          <button class="menuItem subItem" mat-button routerLink="/cadastro-flavia" (click)="drawer.toggle()">
+            <span style="padding-left: 70px;"> - Cadastrar Usuário (Flávia)</span>
+          </button>
+
+          <button class="menuItem subItem" mat-button routerLink="/user-modify-flavia" (click)="drawer.toggle()">
+            <span style="padding-left: 70px;"> - Consultar Usuário (Flávia)</span>
+          </button>
+        </ng-container>
+        <button class="menuItem" mat-button (click)="toggleMill()">
+          <mat-icon>person</mat-icon><span>Mill</span>
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{isMillOpen ? 'expand_less' : 'expand_more'}}
+          </mat-icon>
         </button>
+        <ng-container *ngIf="isMillOpen">
+          <button class="menuItem subItem" mat-button routerLink="/mill-fla" (click)="drawer.toggle()">
+            <span style="padding-left: 70px;"> - Home (Flávia)</span>
+          </button>
 
-        <button class="menuItem" mat-button routerLink="/user-modify-flavia" (click)="drawer.toggle()">
-          <mat-icon>person</mat-icon> <span>Consultar Usuário (Flávia)</span>
-        </button>
+          <button class="menuItem subItem" mat-button routerLink="/mill-fla-insert" (click)="drawer.toggle()">
+            <span style="padding-left: 70px;"> - Insert Mill(Flávia)</span>
+          </button>
 
-        <button class="menuItem" mat-button routerLink="/users/create" (click)="drawer.toggle()">
+          <button class="menuItem subItem" mat-button routerLink="/mill-fla-search" (click)="drawer.toggle()">
+            <span style="padding-left: 70px;"> - Search Mill (Flávia)</span>
+          </button>
+
+          <button class="menuItem subItem" mat-button routerLink="/mill-fla-mod-and-del" (click)="drawer.toggle()">
+            <span style="padding-left: 70px;"> - Modify or Delete Mill (Flávia)</span>
+          </button>
+        </ng-container>
+        <!-- <button class="menuItem" mat-button routerLink="/users/create" (click)="drawer.toggle()">
           <mat-icon>person</mat-icon> <span>Criar Usuário (Erick)</span>
         </button>
 
@@ -53,7 +79,7 @@
 
         <button class="menuItem" mat-button routerLink="/users-modify" (click)="drawer.toggle()">
           <mat-icon>person</mat-icon> <span>Gestão Usuário Eduardo</span>
-        </button>
+        </button> -->
 
       </mat-card-content>
     </mat-card>
@@ -68,4 +94,4 @@
   </mat-drawer-content>
 
 
-</mat-drawer-container> 
+</mat-drawer-container>

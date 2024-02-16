@@ -52,8 +52,5 @@ namespace MinimalAPITeste.Controllers
             }
 
         }
-
-
-
     }
 }

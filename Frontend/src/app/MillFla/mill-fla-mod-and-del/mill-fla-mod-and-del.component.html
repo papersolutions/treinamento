@@ -1,0 +1,52 @@
+<div class="updateMill">
+  <mat-card-header> Update Mill</mat-card-header>
+  <form (submit)="updateMill()">
+    <mat-form-field>
+      <input [(ngModel)]="mill.millID" name="millId" matInput placeholder="Mill ID" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="mill.shortName" name="shortName" matInput placeholder="Short Name" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Update</button>
+  </form>
+  <mat-card *ngIf="arrayMill.length === 0">
+    <mat-card-content>
+      No mills found.
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<button class="menuItem" mat-button routerLink="/mill-fla">
+  <span >Voltar</span>
+</button>
+  <!-- <mat-card *ngIf="arrayMill.length > 0">
+      <div class="update-box">
+        <mat-card-content>
+          <form (submit)="updateMill()">
+            <mat-form-field>
+              <input [(ngModel)]="mill.id" name="millId" matInput placeholder="Mill ID" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input [(ngModel)]="mill.nome" name="nome" matInput placeholder="Short Name" required>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Update</button>
+          </form>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div> 
+  <mat-card *ngIf="arrayMill.length > 0">
+  <div class="delete-box">
+    <mat-card-header> Delete Mill</mat-card-header>
+    <mat-card-content>
+      <form (submit)="deleteMill(mill.id)">
+        <mat-form-field>
+          <input [(ngModel)]="mill.id" name="id" matInput placeholder="Mill ID" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Delete</button>
+      </form>
+    </mat-card-content>
+  </div>
+</mat-card> -->
+
+ 

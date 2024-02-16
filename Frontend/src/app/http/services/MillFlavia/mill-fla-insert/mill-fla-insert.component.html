@@ -1,0 +1,17 @@
+<div class="insertMill">
+  <mat-card-header> Insert Mill</mat-card-header>
+  <form (submit)="insertMill()">
+    <mat-form-field>
+      <input [(ngModel)]="mill.shortName" name="shortName" matInput placeholder="Short Name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input [(ngModel)]="mill.millID" name="millId" matInput placeholder="Mill ID" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Create</button>
+  </form>
+</div>
+
+  <button class="menuItem" mat-button routerLink="/mill-fla">
+    <span >Voltar</span>
+  </button>

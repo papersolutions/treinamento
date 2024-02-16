@@ -1,0 +1,35 @@
+<div class="cadastro-box">
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>CREATE YOUR ACCOUNT</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <form>
+
+                <mat-form-field>
+
+                    <input matInput placeholder="Name" [(ngModel)]="user.nome" name="username">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="E-mail" [(ngModel)]="user.login" name="username">
+                </mat-form-field>
+
+
+                <mat-form-field>
+                    <input type="Password" matInput placeholder="Password" [(ngModel)]="user.senha" name="senha">
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" (click)="criarUsuario()">Cadastrar</button>
+            </form>
+
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<button class="menuItem" mat-button routerLink="/">
+    <span> Voltar para Página Home</span>
+   </button>

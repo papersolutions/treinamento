@@ -1,0 +1,17 @@
+<div class="searchMill">
+  <div class="search-box">
+    <mat-card-header> Search Mill</mat-card-header>
+    <mat-card-content>
+      <form (submit)="searchMill(millId.value)">
+        <mat-form-field>
+          <input #millId matInput placeholder="Mill ID" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Search</button>
+      </form>
+    </mat-card-content>
+  </div>
+</div>
+
+<button class="menuItem" mat-button routerLink="/mill-fla">
+  <span>Voltar</span>
+</button>

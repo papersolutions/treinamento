@@ -1,0 +1,34 @@
+/*Flávia, apliquei as outras propriedades do container globalmente (app.component.css), 
+e ai resolveu o problema do matDrawer ficar pequeno. 
+deixei aqui só as tags de centralização que não encaixam nas outras aplicações
+*/
+.cadastro-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card {
+  max-width: 500px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+mat-card-header {
+  color: #3F51B5;
+  padding-bottom: 14px;
+  padding-top: 30px;
+  justify-content: center;
+}
+
+mat-card-content {
+  display: flex;
+  padding-top: 20px;
+  flex-direction: column;
+}
+
+mat-form-field {
+  padding-bottom: 20px;
+  width: 100%;
+}
