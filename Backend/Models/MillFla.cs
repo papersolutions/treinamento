@@ -10,7 +10,7 @@ namespace MinimalAPITeste.Models
 
         public string? ShortName { get; set; }
         public DateTime Criado { get; set; }
-        public DateTime Alterado { get; set; }
+        public DateTime? Alterado { get; set; }
 
         public MillFla()
         {
