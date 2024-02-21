@@ -9,9 +9,12 @@
       </button>
     </ng-container>
     <ng-container *ngIf="isLoggedIn()">
-      <span>{{username}}</span>
+      <span>{{name}}</span>
       <button class="menuItem" mat-icon-button (click)="logout()">
         <mat-icon>logout</mat-icon>
+      </button>
+      <button class="menuItem" mat-icon-button (click)="fetch()">
+        <mat-icon>refresh</mat-icon>
       </button>
     </ng-container>
   </mat-toolbar-row>

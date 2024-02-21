@@ -39,4 +39,9 @@ export class UserService {
     return this.httpClient.delete<User>(`${this.url}/${this.version}/users/${id}`)
   }
 
+  async userByEmail(username?: string)
+  {
+    return this.httpClient.get<User>(`http://localhost:5109/v1/userByUsername/${username}`)
+  }
+
 }

@@ -1,16 +1,15 @@
 ﻿using MinimalAPITeste.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using MinimalAPITeste.Models;
 using PaperSolutions.Security;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MinimalAPITeste.Controllers
 {
     [ApiController]
     [Route(template: "v1")]
-    public class EntityController : ControllerBase
+    public class UserController : ControllerBase
     {
         [HttpGet]
         [Route("user")]
@@ -25,6 +24,14 @@ namespace MinimalAPITeste.Controllers
         public async Task<IActionResult> GetByIDAsync([FromServices] AppDbContext context, int id)
         {
             var entity = await context.Users.Where(x => x.Id == id).AsNoTracking().ToListAsync();
+            return entity == null ? NotFound() : Ok(entity);
+        }
+
+        [HttpGet]
+        [Route("userByUsername/{username}")]
+        public async Task<IActionResult> GetByUsernameAsync([FromServices] AppDbContext context, [FromRoute] string username)
+        {
+            var entity = await context.Users.Where(x => x.Login == username).FirstOrDefaultAsync();
             return entity == null ? NotFound() : Ok(entity);
         }
 

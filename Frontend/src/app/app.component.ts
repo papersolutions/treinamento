@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,11 +7,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FormsModule } from '@angular/forms';
-import { MSAL_INSTANCE, MsalModule } from '@azure/msal-angular';
-import { AuthenticationResult, IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
+import { MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG, MsalInterceptor, MsalInterceptorConfiguration, MsalModule } from '@azure/msal-angular';
+import { AuthenticationResult, IPublicClientApplication, InteractionType, PublicClientApplication } from '@azure/msal-browser';
 import { MsalService } from '@azure/msal-angular';
 import { CommonModule } from '@angular/common';
-import {MatTreeModule} from '@angular/material/tree';
+import { MatTreeModule } from '@angular/material/tree';
+import { environment } from '../environments/environment';
+import { User } from './models/user';
+import { UserService } from './http/services/user/user.service';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
@@ -21,6 +24,21 @@ export function MSALInstanceFactory(): IPublicClientApplication {
     }
   });
 }
+
+export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
+  const protectedResourceMap = new Map<string, Array<string>>();
+  // Define which permissions (=scopes) we need for Microsoft Graph
+  protectedResourceMap.set('http://localhost:5109', [
+    'api://95d230a5-1a44-473d-8a05-8b10721e2851/Write',
+    'api://95d230a5-1a44-473d-8a05-8b10721e2851/Read',
+  ]);
+
+  return {
+    interactionType: InteractionType.Popup,
+    protectedResourceMap,
+  };
+}
+
 
 @Component({
   selector: 'app-root',
@@ -34,15 +52,25 @@ export function MSALInstanceFactory(): IPublicClientApplication {
       provide: MSAL_INSTANCE,
       useFactory: MSALInstanceFactory
     },
-    MsalService
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true,
+    },
+    {
+      provide: MSAL_INTERCEPTOR_CONFIG,
+      useFactory: MSALInterceptorConfigFactory,
+    },
+    MsalService, UserService
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
   username?: string = '';
+  name?: string = '';
 
-  constructor(private authService: MsalService) {
+  constructor(private authService: MsalService, private userService: UserService) {
 
   }
   ngOnInit(): void {
@@ -55,6 +83,11 @@ export class AppComponent implements OnInit{
     {
       this.username = this.authService.instance.getActiveAccount()?.username
     }
+  }
+
+  async fetch()
+  {
+    await this.userService.userByEmail(this.username).then(promise => promise.subscribe(res => this.name = res.nome))
   }
 
   async initialize()
