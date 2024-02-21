@@ -1,39 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
-import { MillService } from '../../http/services/user/mill.service';
+import { MillService } from '../../http/services/mill-fla-service/mill-fla.service';
 import { Mill } from '../../models/mill';
+import { MillTableComponent } from '../../components/mill-table/mill-table.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-mill-fla-insert',
   standalone: true,
-  imports: [FormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, RouterLink],
+  imports: [FormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, RouterLink, MatTableModule, CommonModule, MillTableComponent],
   templateUrl: './mill-fla-insert.component.html',
   providers: [MillService],
   styleUrl: './mill-fla-insert.component.css'
 })
-export class MillFlaInsertComponent {
-  arrayMill: Mill[] = [];
+export class MillFlaInsertComponent implements OnInit {
+  id: number = 0;
   mill: Mill = new Mill();
+  arrayMill: Mill[] = [];
 
   constructor(private millService: MillService) { }
 
-  ngOnInit(): void {
-    this.searchMill('');
+  async ngOnInit() {
+    await this.getAllMill();
   }
 
-  // then
-  async searchMill(query: string) {
-    await this.millService.searchMill(query).then(promise => promise.subscribe(res => this.mill = res[0]));
+  async createMill() {
+    console.log("Mill Criada: ");
+    (await this.millService.createMill(this.mill)).subscribe({
+      next: (resp) => {
+        console.log(resp);
+        this.getAllMill();
+      }
+    });
+    this.mill.shortName = '';
+    this.mill.millID = '';
+
   }
 
-  async insertMill() {
-    await this.millService.createMill(this.mill).then(promise => promise.subscribe());
-    this.searchMill('');
+  async getAllMill() {
+    (await this.millService.getAllMills()).subscribe({
+      next: (resp) => { this.arrayMill = resp }
+    })
   }
 }

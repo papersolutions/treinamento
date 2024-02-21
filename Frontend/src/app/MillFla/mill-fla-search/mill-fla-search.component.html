@@ -1,17 +1,42 @@
-<div class="searchMill">
-  <div class="search-box">
-    <mat-card-header> Search Mill</mat-card-header>
+<div class="container">
+  <div class="forms-container">
+
+  <div class="Mill">
+    <mat-card-header> FORM</mat-card-header>
     <mat-card-content>
-      <form (submit)="searchMill(millId.value)">
-        <mat-form-field>
-          <input #millId matInput placeholder="Mill ID" required>
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Search</button>
-      </form>
+      <mat-form-field>
+        <mat-label> Digite o ID </mat-label>
+        <input matInput placeholder="ID" [(ngModel)]="id" name="ID" required>
+      </mat-form-field>
+
+      <div class="botoes">
+        <button mat-raised-button color="primary" (click)="buscarMill()"> Search</button>
+        <button mat-raised-button color="warn" class="delete-button" (click)="deletarMill()"> Delete </button>
+        <button mat-raised-button color="primary" class="update-button" (click)="abrirForm()"> Update</button>
+      </div>
     </mat-card-content>
   </div>
+  <br>
+  @if (showUpdateForm){
+  <div class="update-form">
+    <mat-card-header> Update Mill</mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <input [(ngModel)]="selectedMill.shortName" name="shortName" matInput placeholder="shortName" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="update-button" (click)="updateMill()"> Update </button>
+    </mat-card-content>
+  </div>
+  }
 </div>
+<br><br>
 
-<button class="menuItem" mat-button routerLink="/mill-fla">
-  <span>Voltar</span>
-</button>
+  <div class="table">
+    <app-mill-table class="mill-table" title="Mill Management" [dataSource]="arrayMill"
+      [columnsToDisplay]="['id', 'millId', 'shortName', 'criado', 'alterado']"></app-mill-table>
+  </div>
+
+  <button class="menuItem" mat-button routerLink="/mill-fla">
+    <span>Voltar</span>
+  </button>
+</div> 

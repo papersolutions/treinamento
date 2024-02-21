@@ -1,17 +1,31 @@
-<div class="insertMill">
-  <mat-card-header> Insert Mill</mat-card-header>
-  <form (submit)="insertMill()">
-    <mat-form-field>
-      <input [(ngModel)]="mill.shortName" name="shortName" matInput placeholder="Short Name" required>
-    </mat-form-field>
+<div class="container">
+    <div class="insertMill">
+        <mat-card-header>
+            <mat-card-title>Insert Mill</mat-card-title>
+        </mat-card-header>
 
-    <mat-form-field>
-      <input [(ngModel)]="mill.millID" name="millId" matInput placeholder="Mill ID" required>
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Create</button>
-  </form>
+        <mat-card-content>
+
+            <form>
+                <mat-form-field>
+                    <input matInput placeholder="ShortName" [(ngModel)]="mill.shortName" name="ShortName">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Mill ID" [(ngModel)]="mill.millID" name="millID">
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" (click)="createMill()">Create</button>
+            </form>
+        </mat-card-content>
+    </div>
+    <br>
+
+    <app-mill-table class="mill-table" title="Mill Management" [dataSource]="arrayMill"
+        [columnsToDisplay]="['id', 'shortName', 'criado', 'alterado']"></app-mill-table>
+
+    <button class="menuItem" mat-button routerLink="/mill-fla">
+        <span>Voltar</span>
+    </button>
+    <br><br>
 </div>
-
-  <button class="menuItem" mat-button routerLink="/mill-fla">
-    <span >Voltar</span>
-  </button>

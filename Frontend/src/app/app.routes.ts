@@ -8,7 +8,6 @@ import { UsersModifyComponent } from './pages/users/users-modify/users-modify.co
 import { TesteComponent } from './pages/users/teste/teste.component';
 import { LoginFlaviaComponent } from './UserFla/login-flavia/login-flavia.component';
 import { MillFlaInsertComponent } from './MillFla/mill-fla-insert/mill-fla-insert.component';
-import { MillFlaModAndDelComponent } from './MillFla/mill-fla-mod-and-del/mill-fla-mod-and-del.component';
 import { MillFlaSearchComponent } from './MillFla/mill-fla-search/mill-fla-search.component';
 import { MillFlaComponent } from './MillFla/mill-fla/mill-fla.component';
 
@@ -50,10 +49,7 @@ export const routes: Routes = [
         path: 'mill-fla-insert',
         component: MillFlaInsertComponent
     },
-    {
-        path: 'mill-fla-mod-and-del',
-        component: MillFlaModAndDelComponent
-    },
+
     {
         path: 'mill-fla-search',
         component: MillFlaSearchComponent
@@ -61,5 +57,7 @@ export const routes: Routes = [
     {
         path: 'mill-fla',
         component: MillFlaComponent
-    }
+    },
+ 
+
 ];

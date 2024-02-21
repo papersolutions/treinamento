@@ -1,6 +1,8 @@
 .container {
-    display: flex;
     padding: 20px;
+    overflow-y: auto;
+    display: block;
+    padding-bottom: 90px;
 }
 
 .insertMill {
@@ -28,7 +30,6 @@ mat-form-field {
     padding-top: 10px;
 }
 
-
 .buttonFla {
     display: inline-block;
     margin: 5px;
@@ -40,6 +41,8 @@ mat-form-field {
     cursor: pointer;
 }
 
-.buttonFla:hover {
-    background-color: #303F9F;
+.menuItem{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
+
