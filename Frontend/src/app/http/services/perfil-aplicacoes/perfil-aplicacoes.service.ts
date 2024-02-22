@@ -7,14 +7,11 @@ import { PerfilAplicacoes } from '../../../models/perfil-aplicacoes';
   providedIn: 'root'
 })
 export class PerfilAplicacoesService {
-  private baseUrl = 'https://localhost:5001/api/perfilaplicacoes';
-
-  constructor(private httpClient: HttpClient) { }
-
   private url = environment.api;
   private version = environment.version;
 
-  private apiname = "aplicacoes"
+  constructor(private httpClient: HttpClient) { }
+  private apiname = "perfilAplicacoes"
 
   async getApi(id: number) {
     return this.httpClient.get<PerfilAplicacoes[]>(`${this.url}/${this.version}/${this.apiname}/${id}`);
