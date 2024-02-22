@@ -17,10 +17,9 @@
 
     public Perfil(int Id, string Nome, string Descricao, bool isAdmin)
     {
-        Id = 0;
-        Nome = Nome;
-        Descricao = Descricao;
-        isAdmin = isAdmin;
+        this.Nome = Nome;
+        this.Descricao = Descricao;
+        this.isAdmin = isAdmin;
     } 
 
     }
