@@ -23,7 +23,7 @@ namespace MinimalAPITeste.Controllers
         [Route("user/{id}")]
         public async Task<IActionResult> GetByIDAsync([FromServices] AppDbContext context, int id)
         {
-            var entity = await context.Users.Where(x => x.Id == id).AsNoTracking().ToListAsync();
+            var entity = await context.Users.Include(user => user.Perfil).Where(x => x.Id == id).AsNoTracking().ToListAsync();
             return entity == null ? NotFound() : Ok(entity);
         }
 
@@ -47,7 +47,7 @@ namespace MinimalAPITeste.Controllers
             {
                 Nome = model.Nome,
                 Login = model.Login,
-                Senha = Criptografia.Criptografar(model.Senha),
+                IdPerfil = model.IdPerfil,
                 Criado = DateTime.Now
             };
 
@@ -84,7 +84,7 @@ namespace MinimalAPITeste.Controllers
                 {
                     entity.Nome = model.Nome;
                     entity.Login = model.Login;
-                    entity.Senha = model.Senha;
+                    entity.IdPerfil = model.IdPerfil;
                     entity.Alterado = DateTime.Now;
                     context.Users.Update(entity);
                     await context.SaveChangesAsync();
