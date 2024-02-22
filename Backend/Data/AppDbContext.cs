@@ -9,6 +9,9 @@ namespace MinimalAPITeste.Data
         private readonly IConfiguration _configuration;
         public DbSet<MillFla> MillsFla { get; set; }
         public DbSet<Mill> Mills { get; set; }
+        
+        public DbSet<MillEduardo> MillEduardos { get; set; }
+
         public DbSet<User> Users { get; set; }
 
         public AppDbContext(IConfiguration configuration)

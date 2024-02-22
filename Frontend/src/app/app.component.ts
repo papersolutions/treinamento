@@ -112,6 +112,8 @@ export class AppComponent implements OnInit{
   }
   isUsersOpen: boolean = false;
   isMillOpen: boolean = false;
+  isEduardoOpen: boolean = false;
+
 
   toggleUsers() {
     this.isUsersOpen = !this.isUsersOpen;
@@ -119,6 +121,10 @@ export class AppComponent implements OnInit{
 
   toggleMill() {
     this.isMillOpen = !this.isMillOpen;
+  }
+
+  toggleEduardo() {
+    this.isEduardoOpen = !this.isEduardoOpen;
   }
 }
 

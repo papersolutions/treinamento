@@ -1,0 +1,44 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Pesquisa de Mill</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <mat-label>Digitar o ID do Usuario</mat-label>
+        <input matInput [(ngModel)]="id" name="idText" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="buscarUsuario()">Consultar</button>
+
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card-content *ngIf="isAtivo">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Resultado</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field>
+          <mat-label>ID</mat-label>
+          <input matInput placeholder="" [(ngModel)]="users.id" name="id">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Mill ID</mat-label>
+          <input matInput placeholder="" [(ngModel)]="users.millId" name="millId">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ShortName</mat-label>
+          <input matInput placeholder="" [(ngModel)]="users.shortName" name="shortName">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <br />
+  <p>
+    <button mat-raised-button color="primary" routerLink="/mill-edu">
+      <span>Voltar</span>
+    </button>
+  </p>

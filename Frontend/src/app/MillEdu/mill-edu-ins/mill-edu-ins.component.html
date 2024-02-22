@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Cadastro de Mill</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <input matInput placeholder="MillID" [(ngModel)]="usuario.millId" name="millID">
+      </mat-form-field><br>
+      <mat-form-field>
+        <input matInput placeholder="ShortName" [(ngModel)]="usuario.shortName" name="shortName">
+      </mat-form-field><br>
+      <button mat-raised-button color="primary" (click)="criacaoUsuario()">Cadastrar</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<br />
+<p>
+    <button mat-raised-button color="primary" routerLink="/mill-edu">
+      <span>Voltar</span>
+    </button>
+</p>

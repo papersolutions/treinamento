@@ -10,6 +10,11 @@ import { LoginFlaviaComponent } from './UserFla/login-flavia/login-flavia.compon
 import { MillFlaInsertComponent } from './MillFla/mill-fla-insert/mill-fla-insert.component';
 import { MillFlaSearchComponent } from './MillFla/mill-fla-search/mill-fla-search.component';
 import { MillFlaComponent } from './MillFla/mill-fla/mill-fla.component';
+import { MillEduComponent } from './MillEdu/mill-edu/mill-edu.component';
+import { MillEduInsComponent } from './MillEdu/mill-edu-ins/mill-edu-ins.component';
+import { MillEduPutComponent } from './MillEdu/mill-edu-put/mill-edu-put.component';
+import { MillEduGetComponent } from './MillEdu/mill-edu-get/mill-edu-get.component';
+import { MillEduLisComponent } from './MillEdu/mill-edu-lis/mill-edu-lis.component';
 
 
 export const routes: Routes = [
@@ -58,6 +63,24 @@ export const routes: Routes = [
         path: 'mill-fla',
         component: MillFlaComponent
     },
- 
-
+    {
+        path: 'mill-edu',
+        component: MillEduComponent
+    },
+    {
+    path: 'mill-edu-ins',
+    component: MillEduInsComponent
+    },
+    {
+    path: 'mill-edu-put',
+    component: MillEduPutComponent
+    },
+    {
+    path: 'mill-edu-get',
+      component: MillEduGetComponent
+  },
+    {
+    path: 'mill-edu-lis',
+      component: MillEduLisComponent
+    }
 ];
