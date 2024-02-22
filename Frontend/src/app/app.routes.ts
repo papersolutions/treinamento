@@ -15,6 +15,9 @@ import { MillEduInsComponent } from './MillEdu/mill-edu-ins/mill-edu-ins.compone
 import { MillEduPutComponent } from './MillEdu/mill-edu-put/mill-edu-put.component';
 import { MillEduGetComponent } from './MillEdu/mill-edu-get/mill-edu-get.component';
 import { MillEduLisComponent } from './MillEdu/mill-edu-lis/mill-edu-lis.component';
+import { AppDetailsComponent } from './Aplicacao/app-details/app-details.component';
+import { AppFormComponent } from './Aplicacao/app-form/app-form.component';
+import { AppListComponent } from './Aplicacao/app-list/app-list.component';
 
 
 export const routes: Routes = [
@@ -68,19 +71,31 @@ export const routes: Routes = [
         component: MillEduComponent
     },
     {
-    path: 'mill-edu-ins',
-    component: MillEduInsComponent
+        path: 'mill-edu-ins',
+        component: MillEduInsComponent
     },
     {
-    path: 'mill-edu-put',
-    component: MillEduPutComponent
+        path: 'mill-edu-put',
+        component: MillEduPutComponent
     },
     {
-    path: 'mill-edu-get',
-      component: MillEduGetComponent
-  },
+        path: 'mill-edu-get',
+        component: MillEduGetComponent
+    },
     {
-    path: 'mill-edu-lis',
-      component: MillEduLisComponent
+        path: 'mill-edu-lis',
+        component: MillEduLisComponent
+    },
+    {
+        path: 'app-details',
+        component: AppDetailsComponent
+    },
+    {
+        path: 'app-form',
+        component: AppFormComponent
+    },
+    {
+        path: 'app-list',
+        component: AppListComponent
     }
 ];
