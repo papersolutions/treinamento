@@ -7,7 +7,7 @@
         public int IdParent { get; set; } //em qual cabeçalho da árvore se encaixa essa app?
         public string Nome { get; set; } //Nome de exibição
         public string Descricao { get; set; } //Descrição/tooltip dessa appl. 
-        public bool isParent { get; set; } //Se é um item de cabeçalho da arvore de aplicações. 
+        public bool IsParent { get; set; } //Se é um item de cabeçalho da arvore de aplicações. 
         public string Command { get; set; } //routerlink/comando para abrir a página. 
 
     }

@@ -7,10 +7,17 @@ namespace MinimalAPITeste.Data
     public class AppDbContext : DbContext
     {
         private readonly IConfiguration _configuration;
+
         public DbSet<MillFla> MillsFla { get; set; }
+
         public DbSet<Mill> Mills { get; set; }
+
         public DbSet<PefrilAplicacoes> PerfilsAplicacoes { get; set; }
+
         public DbSet<Perfil> Perfils { get; set; }
+        
+        public DbSet<Aplicacao> Aplicacoes { get; set; }
+
         public DbSet<MillEduardo> MillEduardos { get; set; }
 
         public DbSet<User> Users { get; set; }
