@@ -8,12 +8,12 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { MillService } from '../../http/services/mill-fla-service/mill-fla.service';
 import { Mill } from '../../models/mill';
-import { MillTableComponent } from '../../components/mill-table/mill-table.component';
+import { PsTableComponent } from '../../components/ps/ps-table/ps-table.component';
 
 @Component({
     selector: 'app-mill-fla-search',
     standalone: true,
-    imports: [FormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, RouterLink, MillTableComponent],
+    imports: [FormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, RouterLink, PsTableComponent],
     templateUrl: './mill-fla-search.component.html',
     providers: [MillService],
     styleUrl: './mill-fla-search.component.css'

@@ -6,15 +6,15 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { MillService } from '../../http/services/mill-fla-service/mill-fla.service';
 import { Mill } from '../../models/mill';
-import { MillTableComponent } from '../../components/mill-table/mill-table.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { PsTableComponent } from '../../components/ps/ps-table/ps-table.component';
 
 @Component({
   selector: 'app-mill-fla-insert',
   standalone: true,
-  imports: [FormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, RouterLink, MatTableModule, CommonModule, MillTableComponent],
+  imports: [FormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, RouterLink, MatTableModule, CommonModule, PsTableComponent],
   templateUrl: './mill-fla-insert.component.html',
   providers: [MillService],
   styleUrl: './mill-fla-insert.component.css'
