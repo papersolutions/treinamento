@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MinimalAPITeste.Data;
 
@@ -11,9 +12,11 @@ using MinimalAPITeste.Data;
 namespace MinimalAPITeste.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240216111219_AddedMillFla")]
+    partial class AddedMillFla
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,7 +60,7 @@ namespace MinimalAPITeste.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime?>("Alterado")
+                    b.Property<DateTime>("Alterado")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Criado")
@@ -74,25 +77,6 @@ namespace MinimalAPITeste.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MillsFla");
-                });
-
-            modelBuilder.Entity("MinimalAPITeste.Models.PefrilAplicacoes", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("IdAplicacao")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdPerfil")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PerfilsAplicacoes");
                 });
 
             modelBuilder.Entity("MinimalAPITeste.Models.User", b =>
