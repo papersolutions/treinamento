@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MinimalAPITeste.Models
 {
@@ -20,6 +21,12 @@ namespace MinimalAPITeste.Models
             IdPerfil = idPerfil;
             IdAplicacao = idAplicacao;
         }
+
+        [ForeignKey(nameof(IdPerfil))]
+        public Perfil Perfil { get; set; }
+        [ForeignKey(nameof(IdAplicacao))]
+        public Aplicacao Aplicacao { get; set; }
+
     }
 
 }

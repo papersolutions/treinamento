@@ -34,6 +34,7 @@ namespace MinimalAPITeste.Controllers
             app.Descricao = newApp.Descricao;
             app.IsParent = newApp.IsParent;
             app.IdParent = newApp.IdParent;
+            app.Command = newApp.Command;
             app.Id = newApp.Id;
 
             await db.Aplicacoes.AddAsync(app);
@@ -59,6 +60,7 @@ namespace MinimalAPITeste.Controllers
                 originalApp.IsParent = updatedApp.IsParent;
                 originalApp.IdParent = updatedApp.IdParent;
                 originalApp.Id = updatedApp.Id;
+                originalApp.Command = updatedApp.Command;
 
                 context.Aplicacoes.Update(originalApp);
                 await context.SaveChangesAsync();

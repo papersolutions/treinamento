@@ -33,11 +33,48 @@ namespace MinimalAPITeste.Controllers
             perfil.Nome = newPerfil.Nome;
             perfil.Descricao = newPerfil.Descricao;
             perfil.isAdmin = newPerfil.isAdmin;
-
             await db.Perfils.AddAsync(perfil);
             await db.SaveChangesAsync();
             return Ok(perfil);
 
+        }
+
+        [HttpPost]
+        [Route("perfilByUser")]
+        public async Task<IActionResult> GetPerfilByUser([FromServices] AppDbContext context, [FromBody] User usuario)
+        {
+            var perfil = await context.Perfils.FindAsync(usuario.IdPerfil);
+            if (perfil == null)
+            {
+                return Problem("Perfil não encontrado");
+            }
+            else
+            {
+                return Ok(perfil);
+            }
+        }
+
+        [HttpGet]
+        [Route("perfilByUserId")]
+        public async Task<IActionResult> GetPerfilByUser([FromServices] AppDbContext context, [FromRoute] int userId)
+        {
+            var user = await context.Users.FindAsync(userId);
+            if (user == null)
+            {
+                return Problem("Usuario não encontrado");
+            }
+            else
+            {
+            var perfil = await context.Perfils.FindAsync(user.IdPerfil);
+                if (perfil == null)
+                {
+                    return Problem("Perfil não encontrado");
+                }
+                else
+                {
+                    return Ok(perfil);
+                }
+            }
         }
 
         [HttpPut]

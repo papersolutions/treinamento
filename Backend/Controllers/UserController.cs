@@ -23,7 +23,7 @@ namespace MinimalAPITeste.Controllers
         [Route("user/{id}")]
         public async Task<IActionResult> GetByIDAsync([FromServices] AppDbContext context, int id)
         {
-            var entity = await context.Users.Include(user => user.Perfil).Where(x => x.Id == id).AsNoTracking().ToListAsync();
+            var entity = await context.Users.Include("Perfil").Where(x => x.Id == id).AsNoTracking().ToListAsync();
             return entity == null ? NotFound() : Ok(entity);
         }
 
@@ -31,7 +31,7 @@ namespace MinimalAPITeste.Controllers
         [Route("userByUsername/{username}")]
         public async Task<IActionResult> GetByUsernameAsync([FromServices] AppDbContext context, [FromRoute] string username)
         {
-            var entity = await context.Users.Where(x => x.Login == username).FirstOrDefaultAsync();
+            var entity = await context.Users.Include("Perfil").Where(x => x.Login == username).FirstOrDefaultAsync();
             return entity == null ? NotFound() : Ok(entity);
         }
 
