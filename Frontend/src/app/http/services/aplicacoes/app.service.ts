@@ -6,7 +6,7 @@ import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class AppServiceService {
+export class AppService {
   private url = environment.api;
   private version = environment.version;
 
