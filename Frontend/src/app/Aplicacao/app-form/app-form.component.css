@@ -1,0 +1,46 @@
+.criar {
+    margin-bottom: 30px;
+    max-width: 300px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    max-height: 340px;
+    overflow-y: auto;
+}
+
+mat-form-field{
+    width: 300px;
+    display: block;
+    align-items: center;
+}
+
+
+.container {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+mat-card-header {
+    color: #3f51b5;
+    padding-bottom: 10px;
+    padding-top: 30px;
+    font-size: 20px;
+}
+
+mat-card {
+    max-width: 400px;
+    background-color:  #fff;
+    padding: 8px;
+    border-radius: 5px;
+}
+.menuItem{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80px;
+    text-align: center;
+}
+
+
+

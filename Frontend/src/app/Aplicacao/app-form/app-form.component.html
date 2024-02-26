@@ -1,1 +1,30 @@
-<p>app-form works!</p>
+<div class="container">
+    <mat-card>
+      <mat-card-header class="header">Criar Nova Aplicação</mat-card-header>
+      <mat-card-content class="criar">
+
+        <mat-form-field>
+          <mat-label>Nome:</mat-label>
+          <input matInput type="text" id="nome" [(ngModel)]="aplicacoes.nome">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Descrição:</mat-label>
+          <input matInput type="text" id="descricao" [(ngModel)]="aplicacoes.descricao">
+        </mat-form-field>
+        
+        <mat-form-field>
+          <mat-label>Command:</mat-label>
+          <input matInput type="text" id="command" [(ngModel)]="aplicacoes.command">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="createApp()">Criar Aplicação</button>
+      </mat-card-content>
+    </mat-card>
+    
+    <button class="menuItem" mat-button routerLink="/app-app-menu">
+      <span>Voltar</span>
+    </button>
+  </div>
+  
+  

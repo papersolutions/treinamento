@@ -1,1 +1,8 @@
-<p>app-list works!</p>
+<div class="container">
+    <app-ps-table class="ps-table" title="Lista de Aplicações" [dataSource]="arrayAplicacoes"
+        [columnsToDisplay]="['id', 'idParent', 'nome', 'descricao', 'command']"></app-ps-table>
+
+    <button class="menuItem" mat-button routerLink="/app-app-menu">
+        <span>Voltar</span>
+    </button>
+</div>

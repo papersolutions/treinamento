@@ -1,0 +1,37 @@
+
+.container {
+    margin: 20px;
+    padding: 20px;
+    flex-direction: column;
+}
+
+
+
+mat-card {
+    max-width: 400px;
+    background-color:  #fff;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 5px 10px;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.menuItem{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80px;
+    text-align: center;
+}
+
+.ps-table{
+    background-color:#e4e6f1 ;
+    border-radius: 5px;
+}
+
+

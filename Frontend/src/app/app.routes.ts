@@ -15,9 +15,10 @@ import { MillEduInsComponent } from './MillEdu/mill-edu-ins/mill-edu-ins.compone
 import { MillEduPutComponent } from './MillEdu/mill-edu-put/mill-edu-put.component';
 import { MillEduGetComponent } from './MillEdu/mill-edu-get/mill-edu-get.component';
 import { MillEduLisComponent } from './MillEdu/mill-edu-lis/mill-edu-lis.component';
-import { AppDetailsComponent } from './Aplicacao/app-details/app-details.component';
 import { AppFormComponent } from './Aplicacao/app-form/app-form.component';
 import { AppListComponent } from './Aplicacao/app-list/app-list.component';
+import { DeletarComponent } from './Aplicacao/deletar/deletar.component';
+import { AppMenuComponent } from './Aplicacao/app-menu/app-menu.component';
 
 
 export const routes: Routes = [
@@ -87,8 +88,8 @@ export const routes: Routes = [
         component: MillEduLisComponent
     },
     {
-        path: 'app-details',
-        component: AppDetailsComponent
+        path: 'deletar',
+        component: DeletarComponent
     },
     {
         path: 'app-form',
@@ -97,5 +98,9 @@ export const routes: Routes = [
     {
         path: 'app-list',
         component: AppListComponent
+    },
+    {
+        path: 'app-app-menu',
+        component: AppMenuComponent
     }
 ];

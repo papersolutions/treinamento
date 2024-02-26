@@ -10,7 +10,7 @@ namespace MinimalAPITeste.Controllers
     public class AplicacoesController : ControllerBase
     {
         [HttpGet]
-        [Route("aplicacao")]
+        [Route("aplicacoes")]
         public async Task<IActionResult> GetAllApp([FromServices] AppDbContext contexto)
         {
             var allApps = await contexto.Aplicacoes.ToListAsync();
@@ -18,7 +18,7 @@ namespace MinimalAPITeste.Controllers
         }
 
         [HttpGet]
-        [Route("aplicacao/{id}")]
+        [Route("aplicacoes/{id}")]
         public async Task<IActionResult> GetByIDApp([FromServices] AppDbContext context, int id)
         {
             var entity = await context.Aplicacoes.Where(x => x.Id == id).AsNoTracking().ToListAsync();
@@ -26,7 +26,7 @@ namespace MinimalAPITeste.Controllers
         }
 
         [HttpPost]
-        [Route("aplicacao")]
+        [Route("aplicacoes")]
         public async Task<IActionResult> InsertApp([FromServices] AppDbContext db, [FromBody] Aplicacao newApp)
         {
             Aplicacao app = new Aplicacao();
@@ -44,7 +44,7 @@ namespace MinimalAPITeste.Controllers
         }
 
         [HttpPut]
-        [Route("aplicacao/{id}")]
+        [Route("aplicacoes/{id}")]
         public async Task<IActionResult> UpdateApp([FromServices] AppDbContext context, [FromBody] Aplicacao updatedApp, [FromRoute] int id)
         {
             var originalApp = await context.Aplicacoes.FindAsync(id);
@@ -69,7 +69,7 @@ namespace MinimalAPITeste.Controllers
             }
         }
 
-        [HttpDelete("aplicacao/{id}")]
+        [HttpDelete("aplicacoes/{id}")]
         public async Task<IActionResult> DeleteAsyncApp([FromServices] AppDbContext context, [FromRoute] int id)
         {
             var entity = await context.Aplicacoes.FindAsync(id);

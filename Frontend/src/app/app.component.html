@@ -124,19 +124,20 @@
           </mat-icon>
         </button>
         <ng-container *ngIf="isAppOpen">
-          <button class="menuItem subItem" mat-button routerLink="/app-detail" (click)="drawer.toggle()">
-            <!-- <mat-icon style="padding-left: 50px;"> </mat-icon> -->
-            <span style="padding-left: 50px;"> App Details</span>
+          <button class="menuItem subItem" mat-button routerLink="/app-app-menu" (click)="drawer.toggle()">
+            <span style="padding-left: 50px;"> Menu (Flávia)</span>
           </button>
 
           <button class="menuItem subItem" mat-button routerLink="/app-form" (click)="drawer.toggle()">
-            <!-- <mat-icon style="padding-left: 50px;"> </mat-icon> -->
             <span style="padding-left: 50px;"> App Form (Flávia)</span>
           </button>
 
           <button class="menuItem subItem" mat-button routerLink="/app-list" (click)="drawer.toggle()">
-            <!-- <mat-icon style="padding-left: 50px;"> </mat-icon> -->
             <span style="padding-left: 50px;"> App List (Flávia)</span>
+          </button>
+
+          <button class="menuItem subItem" mat-button routerLink="/deletar" (click)="drawer.toggle()">
+            <span style="padding-left: 50px;"> App Delete </span>
           </button>
         </ng-container>
 
