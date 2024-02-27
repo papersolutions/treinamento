@@ -1,0 +1,30 @@
+mat-card {
+    background-color: whitesmoke;
+    display: flex;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 250px;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.msg {
+    color:darkgreen;
+    font-weight: bold; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.msgver {
+    color:tomato;
+    font-weight: bold; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
