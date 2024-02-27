@@ -31,7 +31,7 @@ namespace MinimalAPITeste.Controllers
         public async Task<IActionResult> GetAplicacoesByPerfil([FromRoute] int idPerfil)
         {
             var acessos = await _context.PerfilsAplicacoes.Include(nameof(PefrilAplicacoes.Aplicacao)).Where(perfilAplicacoes => perfilAplicacoes.IdPerfil == idPerfil).ToListAsync();
-            var dto = acessos.Select(s => new { s.Aplicacao.IdParent, s.Aplicacao.Nome, s.Aplicacao.IsParent, s.Aplicacao.Command}).ToList();
+            var dto = acessos.Select(s => new { s.Id, s.Aplicacao.IdParent, s.Aplicacao.Nome, s.Aplicacao.IsParent, s.Aplicacao.Command, s.Aplicacao.Icon}).ToList();
             return Ok(dto.OrderBy(o => o.IdParent).ToList());
         }
 
