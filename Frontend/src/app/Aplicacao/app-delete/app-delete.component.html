@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="forms-container">
+        <div class="fundo">
+        <app-selecte-table class="selecte-table" title="Lista de Aplicações" [dataSource]="arrayAplicacoes"
+            [columnsToDisplay]="['id', 'idParent', 'nome', 'descricao', 'command' , 'actions']" (DeleteEvent)="refresh($event)"></app-selecte-table>
+        </div>
+
+        <button class="menuItem" mat-button routerLink="/app-app-menu">
+            <span>Voltar</span>
+        </button>
+    </div>
+
+</div>

@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { Aplicacoes } from '../../../models/aplicacoes';
 import { environment } from '../../../../environments/environment';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import { environment } from '../../../../environments/environment';
 export class AppService {
   private url = environment.api;
   private version = environment.version;
+  selectedApp: any;
 
   constructor(private httpClient: HttpClient) { }
   private apiname = "aplicacoes"
@@ -32,4 +34,5 @@ export class AppService {
   async deleteAplicacao(id: number) {
     return this.httpClient.delete(`${this.url}/${this.version}/${this.apiname}/${id}`);
   }
+
 }

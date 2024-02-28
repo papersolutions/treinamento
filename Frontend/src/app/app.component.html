@@ -5,7 +5,7 @@
     <span class="spacer"></span>
     <ng-container *ngIf="!isLoggedIn()">
       <button class="menuItem" mat-button (click)="login()">
-        <mat-icon>login</mat-icon><span>Login</span>
+        <mat-icon>login</mat-icon><span>Login {{ selectedApp.command }}</span>
       </button>
     </ng-container>
     <ng-container *ngIf="isLoggedIn()">
@@ -24,10 +24,10 @@
 <mat-drawer-container [hasBackdrop]="true">
   <mat-drawer #drawer mode="over" style="min-width: 20%;">
     <mat-card>
-      
+
       <mat-card-content class="menu">
         <button class="menuItem" mat-button routerLink="/">
-          <mat-icon>home</mat-icon> <span>Home</span>
+          <mat-icon>home</mat-icon> <span>Home {{ selectedApp.command }}</span>
         </button>
 
         <button class="menuItem" mat-button (click)="toggleUsers()">
@@ -39,21 +39,20 @@
 
         <ng-container *ngIf="isUsersOpen">
           <button class="menuItem subItem" mat-button routerLink="/users" (click)="drawer.toggle()">
-            <mat-icon style="padding-left: 50px;"> list_alt</mat-icon>
+            <mat-icon style="padding-left: 50px;"> list_alt {{ selectedApp.command }}</mat-icon>
             <span> Users List</span>
           </button>
 
           <button class="menuItem subItem" mat-button routerLink="/cadastro-flavia" (click)="drawer.toggle()">
-            <mat-icon style="padding-left: 50px;">contact_mail</mat-icon>
+            <mat-icon style="padding-left: 50px;">contact_mail {{ selectedApp.command }}</mat-icon>
             <span> Create Account (Flávia)</span>
           </button>
 
           <button class="menuItem subItem" mat-button routerLink="/user-modify-flavia" (click)="drawer.toggle()">
-            <mat-icon style="padding-left: 50px;">search</mat-icon>
+            <mat-icon style="padding-left: 50px;">search {{ selectedApp.command }}</mat-icon>
             <span>Search User (Flávia)</span>
           </button>
         </ng-container>
-
 
         <button class="menuItem" mat-button (click)="toggleMill()">
           <span>Mill Flavia</span>
@@ -63,23 +62,23 @@
         </button>
         <ng-container *ngIf="isMillOpen">
           <button class="menuItem subItem" mat-button routerLink="/mill-fla" (click)="drawer.toggle()">
-            <mat-icon style="padding-left: 50px;"> home</mat-icon>
+            <mat-icon style="padding-left: 50px;"> home {{ selectedApp.command }}</mat-icon>
             <span> Home</span>
           </button>
-        
+
           <button class="menuItem subItem" mat-button routerLink="/mill-fla-insert" (click)="drawer.toggle()">
-            <mat-icon style="padding-left: 50px;"> add_box</mat-icon>
+            <mat-icon style="padding-left: 50px;"> add_box {{ selectedApp.command }}</mat-icon>
             <span> Insert</span>
           </button>
-        
+
           <button class="menuItem subItem" mat-button routerLink="/mill-fla-search" (click)="drawer.toggle()">
-            <mat-icon style="padding-left: 50px;"> search</mat-icon>
+            <mat-icon style="padding-left: 50px;"> search {{ selectedApp.command }}</mat-icon>
             <span> Search / Delete / Modify</span>
           </button>
-        
+
         </ng-container>
 
-        
+
 
         <button class="menuItem" mat-button (click)="toggleEduardo()">
           <!-- <mat-icon>kayaking</mat-icon> -->
@@ -87,32 +86,32 @@
           <mat-icon class="mat-icon-rtl-mirror">
             {{isUsersOpen ? 'expand_less' : 'expand_more'}}
           </mat-icon>
+        </button>
+        <ng-container *ngIf="isEduardoOpen">
+          <button class="menuItem subItem" mat-button routerLink="/mill-edu" (click)="drawer.toggle()">
+            <mat-icon style="padding-left: 50px;"> home {{ selectedApp.command }}</mat-icon>
+            <span> Mill Home</span>
           </button>
-          <ng-container *ngIf="isEduardoOpen">
-            <button class="menuItem subItem" mat-button routerLink="/mill-edu" (click)="drawer.toggle()">
-              <mat-icon style="padding-left: 50px;"> home </mat-icon>
-              <span> Mill Home</span>
-            </button>
-            
-            <button class="menuItem subItem" mat-button routerLink="/mill-edu-lis" (click)="drawer.toggle()">
-              <mat-icon style="padding-left: 50px;"> list_alt</mat-icon>
-              <span> Listagem Geral de Mill</span>
-            </button>
-            
-            <button class="menuItem subItem" mat-button routerLink="/mill-edu-ins" (click)="drawer.toggle()">
-              <mat-icon style="padding-left: 50px;"> contact_mail</mat-icon>
-              <span> Cadastro</span>
-            </button>
-            
-            <button class="menuItem subItem" mat-button routerLink="/mill-edu-get" (click)="drawer.toggle()">
-              <mat-icon style="padding-left: 50px;"> search</mat-icon>
-              <span> Pesquisa</span>
-            </button>
-            
-            <button class="menuItem subItem" mat-button routerLink="/mill-edu-put" (click)="drawer.toggle()">
-              <mat-icon style="padding-left: 50px;"> edit</mat-icon>
-              <span> Alterar e Excluir</span>
-            </button>
+
+          <button class="menuItem subItem" mat-button routerLink="/mill-edu-lis" (click)="drawer.toggle()">
+            <mat-icon style="padding-left: 50px;"> list_alt {{ selectedApp.command }}</mat-icon>
+            <span> Listagem Geral de Mill</span>
+          </button>
+
+          <button class="menuItem subItem" mat-button routerLink="/mill-edu-ins" (click)="drawer.toggle()">
+            <mat-icon style="padding-left: 50px;"> contact_mail {{ selectedApp.command }} </mat-icon>
+            <span> Cadastro</span>
+          </button>
+
+          <button class="menuItem subItem" mat-button routerLink="/mill-edu-get" (click)="drawer.toggle()">
+            <mat-icon style="padding-left: 50px;"> search {{ selectedApp.command }}</mat-icon>
+            <span> Pesquisa</span>
+          </button>
+
+          <button class="menuItem subItem" mat-button routerLink="/mill-edu-put" (click)="drawer.toggle()">
+            <mat-icon style="padding-left: 50px;"> edit {{ selectedApp.command }}</mat-icon>
+            <span> Alterar e Excluir</span>
+          </button>
 
         </ng-container>
 
@@ -125,22 +124,21 @@
         </button>
         <ng-container *ngIf="isAppOpen">
           <button class="menuItem subItem" mat-button routerLink="/app-app-menu" (click)="drawer.toggle()">
-            <span style="padding-left: 50px;"> Menu (Flávia)</span>
+            <span style="padding-left: 50px;"> Menu {{ selectedApp.command }}</span>
           </button>
 
           <button class="menuItem subItem" mat-button routerLink="/app-form" (click)="drawer.toggle()">
-            <span style="padding-left: 50px;"> App Form (Flávia)</span>
+            <span style="padding-left: 50px;"> App Form {{ selectedApp.command }}</span>
           </button>
 
           <button class="menuItem subItem" mat-button routerLink="/app-list" (click)="drawer.toggle()">
-            <span style="padding-left: 50px;"> App List (Flávia)</span>
+            <span style="padding-left: 50px;"> App List {{ selectedApp.command }}</span>
           </button>
 
-          <button class="menuItem subItem" mat-button routerLink="/deletar" (click)="drawer.toggle()">
-            <span style="padding-left: 50px;"> App Delete </span>
+          <button class="menuItem subItem" mat-button routerLink="/app-delete" (click)="drawer.toggle()">
+            <span style="padding-left: 50px;"> App Delete {{ selectedApp.command }}</span>
           </button>
         </ng-container>
-
 
         <!-- <button class="menuItem" mat-button routerLink="/users/create" (click)="drawer.toggle()">
     <mat-icon>person</mat-icon> <span>Criar Usuário (Erick)</span>

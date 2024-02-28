@@ -1,29 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AppService } from '../../http/services/aplicacoes/app.service';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
-import { PsTableComponent } from '../../components/ps/ps-table/ps-table.component';
-import { AppService } from '../../http/services/aplicacoes/app.service';
 import { Aplicacoes } from '../../models/aplicacoes';
+import { SelecteTableComponent } from '../buttons/app-table.component';
 
 @Component({
-  selector: 'app-app-list',
+  selector: 'app-deletar',
   standalone: true,
-  imports: [FormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, RouterLink, PsTableComponent],
-  templateUrl: './app-list.component.html',
+  imports: [FormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, RouterLink, SelecteTableComponent],
+  templateUrl: './app-delete.component.html',
   providers: [AppService],
-  styleUrl: './app-list.component.css'
+  styleUrls: ['./app-delete.component.css']
 })
-export class AppListComponent implements OnInit {
+export class DeletarComponent {
   id: number = 0;
   aplicacoes: Aplicacoes = new Aplicacoes();
   arrayAplicacoes: Aplicacoes[] = [];
-  selectedIds: number[] = [];
-  selectAll: boolean = false;
 
   constructor(private aplicacoesService: AppService) { }
 
@@ -31,17 +29,20 @@ export class AppListComponent implements OnInit {
     this.getAllApp();
   }
 
-  async getAllApp() {
-    console.log("Getting all applications...");
+  async getAllApp() {    
     (await this.aplicacoesService.getAllAplicacoes()).subscribe({
       next: (resp) => {
-        console.log("Applications retrieved:", resp);
         this.arrayAplicacoes = resp;
       },
       error: (error) => {
         console.error("Error retrieving applications:", error);
       }
     });
+  }
+
+  async refresh(event: any){
+    console.log("chamando refresh: ");
+    await this.getAllApp();
   }
 
 }

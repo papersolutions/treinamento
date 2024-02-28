@@ -17,11 +17,13 @@ import { MillEduGetComponent } from './MillEdu/mill-edu-get/mill-edu-get.compone
 import { MillEduLisComponent } from './MillEdu/mill-edu-lis/mill-edu-lis.component';
 import { AppFormComponent } from './Aplicacao/app-form/app-form.component';
 import { AppListComponent } from './Aplicacao/app-list/app-list.component';
-import { DeletarComponent } from './Aplicacao/deletar/deletar.component';
 import { AppMenuComponent } from './Aplicacao/app-menu/app-menu.component';
+import { ModificarAplicacaoComponent } from './Aplicacao/modificar-aplicacao/app-modify.component';
+import { DeletarComponent } from './Aplicacao/app-delete/app-delete.component';
 
 
 export const routes: Routes = [
+
     {
         path: '',
         component: HomeComponent
@@ -88,7 +90,7 @@ export const routes: Routes = [
         component: MillEduLisComponent
     },
     {
-        path: 'deletar',
+        path: 'app-delete',
         component: DeletarComponent
     },
     {
@@ -102,5 +104,11 @@ export const routes: Routes = [
     {
         path: 'app-app-menu',
         component: AppMenuComponent
-    }
+    },
+    {
+        path: 'modificar-aplicacao/:id',
+        component: ModificarAplicacaoComponent
+    },
+
+
 ];

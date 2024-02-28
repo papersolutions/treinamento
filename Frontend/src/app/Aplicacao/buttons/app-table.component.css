@@ -1,0 +1,12 @@
+.delete-button, .edit-button {
+    width: 27px;
+    height: 27px;
+    margin-right: 10px;
+}
+
+.delete-button mat-icon, .edit-button mat-icon {
+    font-size: 19px;
+    padding-top: 3px;
+}
+
+

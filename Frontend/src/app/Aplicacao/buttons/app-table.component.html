@@ -1,0 +1,61 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <h1>{{ title }}</h1>
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-table *ngIf="dataSource" [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+            <!-- <ng-container matColumnDef="select">
+                <mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox [(ngModel)]="selectAll" (change)="selectAllApps()" class="select-all-checkbox"></mat-checkbox>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <mat-checkbox [(ngModel)]="row.selected" (change)="selectApp(row)"></mat-checkbox>
+                </mat-cell>
+            </ng-container> -->
+            <!-- colocar tipe -->
+
+            <ng-container *ngFor="let column of columnsToDisplay" [matColumnDef]="column">
+
+                @if(column != 'actions') {
+                <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> {{column | uppercase}}
+                </mat-header-cell>
+                <mat-cell mat-cell *matCellDef="let element"> {{ element[column] }} </mat-cell>
+                } @else {
+                <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> {{column | uppercase}}
+                </mat-header-cell>
+                <mat-cell mat-cell *matCellDef="let row">
+
+                    <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon"
+                    (click)="openConfirmationDialog(row)" class="delete-button">
+                <mat-icon>delete</mat-icon>
+            </button>
+            
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon"
+                    (click)="editClick(row)" class="edit-button">
+                <mat-icon>edit</mat-icon>
+            </button>
+            
+            <!-- [routerLink]="['/modificar-aplicacao', row.id]" -->
+                </mat-cell>
+                }
+
+            </ng-container>
+
+
+            <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
+
+        </mat-table>
+    </mat-card-content>
+
+    <mat-card-content>
+        <mat-card-actions>
+            <span style="padding-top: 10px; padding-left: 20px;">Encontrado {{ dataSource.length }} registros.</span>
+        </mat-card-actions>
+    </mat-card-content>
+
+</mat-card>

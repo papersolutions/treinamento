@@ -1,0 +1,31 @@
+<div class="container">
+    <mat-card>
+        <div class="modify">
+            <mat-card-header> Modify Aplication </mat-card-header>
+            <mat-card-content>
+                <form>
+                    <div class="modify-itens">
+                        <mat-form-field>
+                            <input matInput placeholder="Novo Nome" [(ngModel)]="selectedApp.nome" name="nome">
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="Nova Descrição" [(ngModel)]="selectedApp.descricao"
+                                name="descricao">
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="Novo Command" [(ngModel)]="selectedApp.command" name="command">
+                        </mat-form-field>
+                    </div>
+
+                    <button mat-raised-button color="primary" (click)="modifyApp()">Modificar</button>
+                </form>
+            </mat-card-content>
+        </div>
+
+    </mat-card>
+    <button class="menuItem" mat-button routerLink="/app-delete">
+        <span>Voltar</span>
+    </button>
+</div>
