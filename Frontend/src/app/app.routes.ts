@@ -18,6 +18,11 @@ import { MillEduLisComponent } from './MillEdu/mill-edu-lis/mill-edu-lis.compone
 import { AppDetailsComponent } from './Aplicacao/app-details/app-details.component';
 import { AppFormComponent } from './Aplicacao/app-form/app-form.component';
 import { AppListComponent } from './Aplicacao/app-list/app-list.component';
+import { PerGetAllComponent } from './pages/perfil/per-get-all/per-get-all.component';
+import { PerGetComponent } from './pages/perfil/per-get/per-get.component';
+import { PerInsComponent } from './pages/perfil/per-ins/per-ins.component';
+import { PerHomComponent } from './pages/perfil/per-hom/per-hom.component';
+import { PerPutComponent } from './pages/perfil/per-put/per-put.component';
 
 
 export const routes: Routes = [
@@ -97,5 +102,25 @@ export const routes: Routes = [
     {
         path: 'app-list',
         component: AppListComponent
+    },
+    {
+        path: 'per-get-all',
+        component: PerGetAllComponent
+    },
+    {
+        path: 'per-get',
+        component: PerGetComponent
+    },
+    {
+        path: 'per-put',
+        component: PerPutComponent
+    },
+    {
+        path: 'per-ins',
+        component: PerInsComponent
+    },
+    {
+        path: 'per-hom',
+        component: PerHomComponent
     }
 ];

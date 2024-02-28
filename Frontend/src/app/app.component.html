@@ -140,6 +140,39 @@
           </button>
         </ng-container>
 
+        <button class="menuItem" mat-button (click)="togglePerfil()">
+          <span>Perfil</span>
+          <mat-icon class="mat-icon-rtl-mirror">account_box
+            {{isAppOpen ? 'expand_less' : 'expand_more'}}
+          </mat-icon>
+        </button>
+        <ng-container *ngIf="isPerfilOpen">
+          <button class="menuItem subItem" mat-button routerLink="/per-hom" (click)="drawer.toggle()">
+            <mat-icon style="padding-left: 30px;">foundation</mat-icon>
+            <span>Perfil Home</span>
+          </button>
+
+          <button class="menuItem subItem" mat-button routerLink="/per-ins" (click)="drawer.toggle()">
+            <mat-icon style="padding-left: 30px;">assignment_add</mat-icon>
+            <span>Perfil Cadastro</span>
+          </button>
+
+          <button class="menuItem subItem" mat-button routerLink="/per-get-all" (click)="drawer.toggle()">
+            <mat-icon style="padding-left: 30px;">format_align_justify</mat-icon>
+            <span>Perfil Listagem Geral</span>
+          </button>
+
+          <button class="menuItem subItem" mat-button routerLink="/per-get" (click)="drawer.toggle()">
+            <mat-icon style="padding-left: 30px;">list_alt</mat-icon>
+            <span>Perfil Listagem Por ID</span>
+          </button>
+
+          <button class="menuItem subItem" mat-button routerLink="/per-put" (click)="drawer.toggle()">
+            <mat-icon style="padding-left: 30px;">edit_document</mat-icon>
+            <span>Perfil Alterar e Deletar</span>
+          </button>
+        </ng-container>
+
 
         <!-- <button class="menuItem" mat-button routerLink="/users/create" (click)="drawer.toggle()">
     <mat-icon>person</mat-icon> <span>Criar Usuário (Erick)</span>
