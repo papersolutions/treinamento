@@ -12,9 +12,9 @@ import { AuthenticationResult, IPublicClientApplication, InteractionType, Public
 import { MsalService } from '@azure/msal-angular';
 import { CommonModule } from '@angular/common';
 import { MatTreeModule } from '@angular/material/tree';
-import { environment } from '../environments/environment';
-import { User } from './models/user';
 import { UserService } from './http/services/user/user.service';
+import { Aplicacoes } from './models/aplicacoes';
+import { AppService } from './http/services/aplicacoes/app.service';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
@@ -39,13 +39,12 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   };
 }
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, HttpClientModule, MatToolbarModule, 
+  imports: [CommonModule, RouterOutlet, RouterLink, HttpClientModule, MatToolbarModule,
     MatIconModule, MatButtonModule, MatCardModule, MatSidenavModule, FormsModule, MatTreeModule,
-    MsalModule, 
+    MsalModule
   ],
   providers: [
     {
@@ -61,37 +60,43 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
       provide: MSAL_INTERCEPTOR_CONFIG,
       useFactory: MSALInterceptorConfigFactory,
     },
-    MsalService, UserService
+    MsalService, UserService, AppService
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   username?: string = '';
   name?: string = '';
+  
+  isUsersOpen: boolean = false;
+  isMillOpen: boolean = false;
+  isEduardoOpen: boolean = false;
+  isAppOpen: boolean = false;
+  selectedApp: Aplicacoes = new Aplicacoes(); 
 
-  constructor(private authService: MsalService, private userService: UserService) {
-
-  }
+  
+  constructor(private authService: MsalService, private userService: UserService, private AppService : AppService) { }
+  
   ngOnInit(): void {
     this.initialize();
-    if(this.authService.instance.getActiveAccount() == null)
-    {
+    
+    if (this.authService.instance.getActiveAccount() == null) {
       this.login();
     }
-    else
-    {
+    else {
       this.username = this.authService.instance.getActiveAccount()?.username
     }
+    this.AppService.selectedApp.subscribe((app: Aplicacoes) => {
+      this.selectedApp = app;
+    }); 
   }
 
-  async fetch()
-  {
+  async fetch() {
     await this.userService.userByEmail(this.username).then(promise => promise.subscribe(res => this.name = res.nome))
   }
 
-  async initialize()
-  {
+  async initialize() {
     await this.authService.instance.initialize();
   }
 
@@ -110,11 +115,6 @@ export class AppComponent implements OnInit{
   logout() {
     this.authService.logout()
   }
-  isUsersOpen: boolean = false;
-  isMillOpen: boolean = false;
-  isEduardoOpen: boolean = false;
-  isAppOpen: boolean = false;
-
 
   toggleUsers() {
     this.isUsersOpen = !this.isUsersOpen;
