@@ -8,15 +8,32 @@
   <mat-card-content>
     <mat-table *ngIf="dataSource" [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
+
       <ng-container *ngFor="let column of columnsToDisplay" [matColumnDef]="column">
+        @if(column != 'actions') {
         <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> {{column | uppercase}} </mat-header-cell>
         <mat-cell mat-cell *matCellDef="let element"> {{ element[column] }} </mat-cell>
+        } @else {
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> delete </mat-header-cell>
+
+        <mat-cell mat-cell *matCellDef="let element">
+
+          <button mat-mini-fab color="primary" (click)="openConfirmationDialog(element)" class="delete-button">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+          <button mat-mini-fab color="primary" (click)="openConfirmationDialog(element)" class="edit-button">
+          <mat-icon>edit</mat-icon>
+      </button>
+
+        </mat-cell>
+        }
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
       <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
+
     </mat-table>
-    
   </mat-card-content>
 
   <mat-card-content>
