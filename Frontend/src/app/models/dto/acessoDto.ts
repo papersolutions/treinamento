@@ -1,6 +1,6 @@
 export interface accessDto {
-    idParent: number, 
+    idParent: number,
     nome: string,
-    isParent: boolean, 
+    isParent: boolean,
     command: string
 }

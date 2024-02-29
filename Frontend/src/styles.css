@@ -2,13 +2,13 @@ html, body {
     margin: 0;
     background: linear-gradient(to right, #f5f3f3, #a1add3);
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    
+    overflow: hidden;
 }
 
 .container {
     height: 91vh;
     margin: 0;
-    overflow: hidden;
+    overflow: auto;
     display: flex;
     background-color: transparent;
 }

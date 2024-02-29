@@ -15,6 +15,6 @@ export class PerfilAplicacoesService {
 
   async getApi(id: number) {
     return this.httpClient.get<PerfilAplicacoes[]>(`${this.url}/${this.version}/${this.apiname}/${id}`);
-  }
+    }
 
 }

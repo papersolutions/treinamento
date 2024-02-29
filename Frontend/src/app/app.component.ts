@@ -74,7 +74,7 @@ export class AppComponent implements OnInit {
   isEduardoOpen: boolean = false;
   isAppOpen: boolean = false;
   selectedApp: Aplicacoes = new Aplicacoes(); 
-
+  isPerfilOpen: boolean = false;
   
   constructor(private authService: MsalService, private userService: UserService, private AppService : AppService) { }
   
@@ -131,7 +131,10 @@ export class AppComponent implements OnInit {
   toggleApp() {
     this.isAppOpen = !this.isAppOpen;
   }
-
+  
+  togglePerfil() {
+    this.isPerfilOpen = !this.isPerfilOpen;
+  }
 }
 
 

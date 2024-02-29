@@ -30,7 +30,6 @@ export class CadastroFlaviaComponent {
     (await this.userService.createUser(this.user)).subscribe(response => console.log("Usuario Criado: ", response));
     this.user.nome = '';
     this.user.login = '';
-    this.user.senha = '';
   }
 
 }

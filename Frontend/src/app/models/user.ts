@@ -2,7 +2,7 @@ export class User {
     id?: number;
     nome: string;
     login: string;
-    senha: string;
+    idPerfil: number;
     criado?: Date;
     alterado?: Date
 
@@ -10,6 +10,6 @@ export class User {
         this.id = 0,
         this.nome = '',
         this.login = '',
-        this.senha = ''
+        this.idPerfil = 0
     }
 }
