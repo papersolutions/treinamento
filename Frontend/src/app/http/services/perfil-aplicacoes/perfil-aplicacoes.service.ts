@@ -13,8 +13,9 @@ export class PerfilAplicacoesService {
   constructor(private httpClient: HttpClient) { }
   private apiname = "perfilAplicacoes"
 
-  async getApi(id: number) {
+  async getPerfilAplicacoes(id: number) {
     return this.httpClient.get<PerfilAplicacoes[]>(`${this.url}/${this.version}/${this.apiname}/${id}`);
-    }
+  }
+
 
 }

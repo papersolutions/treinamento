@@ -14,11 +14,11 @@
         <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> {{column | uppercase}} </mat-header-cell>
         <mat-cell mat-cell *matCellDef="let element"> {{ element[column] }} </mat-cell>
         } @else {
-        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> delete </mat-header-cell>
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> ACTIONS </mat-header-cell>
 
         <mat-cell mat-cell *matCellDef="let element">
 
-          <button mat-mini-fab color="primary" (click)="openConfirmationDialog(element)" class="delete-button">
+          <button mat-mini-fab color="primary" (click)="openConfirmationDialog(element )" class="delete-button">
             <mat-icon>delete</mat-icon>
           </button>
 

@@ -75,6 +75,7 @@ export class AppComponent implements OnInit {
   isAppOpen: boolean = false;
   selectedApp: Aplicacoes = new Aplicacoes(); 
   isPerfilOpen: boolean = false;
+  isPerfilAplicacoesOpen: boolean = false;
   
   constructor(private authService: MsalService, private userService: UserService, private AppService : AppService) { }
   
@@ -134,6 +135,11 @@ export class AppComponent implements OnInit {
   
   togglePerfil() {
     this.isPerfilOpen = !this.isPerfilOpen;
+  }
+
+  togglePerfilAplicacoes(){
+    this.isPerfilAplicacoesOpen = !this.isPerfilAplicacoesOpen;
+
   }
 }
 

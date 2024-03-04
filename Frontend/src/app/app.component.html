@@ -140,8 +140,6 @@
           </button>
         </ng-container>
 
-<<<<<<< HEAD
-=======
         <button class="menuItem" mat-button (click)="togglePerfil()">
           <span>Perfil</span>
           <mat-icon class="mat-icon-rtl-mirror">account_box
@@ -176,18 +174,24 @@
         </ng-container>
 
 
->>>>>>> 582a7c28dfa07b7fa4d915e88ec6aaa92788d774
-        <!-- <button class="menuItem" mat-button routerLink="/users/create" (click)="drawer.toggle()">
-    <mat-icon>person</mat-icon> <span>Criar Usuário (Erick)</span>
-  </button>
+        <button class="menuItem" mat-button (click)="togglePerfilAplicacoes()">
+          <span>Perfil Aplicacoes</span>
+          <mat-icon class="mat-icon-rtl-mirror">view_list
+            {{isAppOpen ? 'expand_less' : 'expand_more'}}
+          </mat-icon>
+        </button>
+        <ng-container *ngIf="isPerfilAplicacoesOpen">
+          <button class="menuItem subItem" mat-button routerLink="/menu-perfil-aplicacoes" (click)="drawer.toggle()">
+            <mat-icon style="padding-left: 30px;">home</mat-icon>
+            <span> Home {{ selectedApp.command }}</span>
+          </button>
 
-  <button class="menuItem" mat-button routerLink="/users/teste" (click)="drawer.toggle()">
-    <mat-icon>person</mat-icon> <span>Criar Usuario Eduardo</span>
-  </button>
+          <button class="menuItem subItem" mat-button routerLink="/gerenciar-perfil-aplicacoes" (click)="drawer.toggle()">
+            <mat-icon style="padding-left: 30px;">lock</mat-icon>
+            <span> Gerenciar Perfis {{ selectedApp.command }}</span>
+          </button>
 
-  <button class="menuItem" mat-button routerLink="/users-modify" (click)="drawer.toggle()">
-    <mat-icon>person</mat-icon> <span>Gestão Usuário Eduardo</span>
-  </button> -->
+        </ng-container>
 
       </mat-card-content>
     </mat-card>
@@ -202,3 +206,15 @@
   </mat-drawer-content>
 
 </mat-drawer-container>
+
+        <!-- <button class="menuItem" mat-button routerLink="/users/create" (click)="drawer.toggle()">
+    <mat-icon>person</mat-icon> <span>Criar Usuário (Erick)</span>
+  </button>
+
+  <button class="menuItem" mat-button routerLink="/users/teste" (click)="drawer.toggle()">
+    <mat-icon>person</mat-icon> <span>Criar Usuario Eduardo</span>
+  </button>
+
+  <button class="menuItem" mat-button routerLink="/users-modify" (click)="drawer.toggle()">
+    <mat-icon>person</mat-icon> <span>Gestão Usuário Eduardo</span>
+  </button> -->

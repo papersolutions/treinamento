@@ -17,21 +17,19 @@ import { MillEduGetComponent } from './MillEdu/mill-edu-get/mill-edu-get.compone
 import { MillEduLisComponent } from './MillEdu/mill-edu-lis/mill-edu-lis.component';
 import { AppFormComponent } from './Aplicacao/app-form/app-form.component';
 import { AppListComponent } from './Aplicacao/app-list/app-list.component';
-<<<<<<< HEAD
-import { AppMenuComponent } from './Aplicacao/app-menu/app-menu.component';
-import { ModificarAplicacaoComponent } from './Aplicacao/modificar-aplicacao/app-modify.component';
 import { DeletarComponent } from './Aplicacao/app-delete/app-delete.component';
-=======
 import { PerGetAllComponent } from './pages/perfil/per-get-all/per-get-all.component';
 import { PerGetComponent } from './pages/perfil/per-get/per-get.component';
+import { AppMenuComponent } from './Aplicacao/app-menu/app-menu.component';
+import { ModificarAplicacaoComponent } from './Aplicacao/modificar-aplicacao/app-modify.component';
+import { PerPutComponent } from './pages/perfil/per-put/per-put.component';
 import { PerInsComponent } from './pages/perfil/per-ins/per-ins.component';
 import { PerHomComponent } from './pages/perfil/per-hom/per-hom.component';
-import { PerPutComponent } from './pages/perfil/per-put/per-put.component';
->>>>>>> 582a7c28dfa07b7fa4d915e88ec6aaa92788d774
-
+import { MenuPerfilAplicacoesComponent } from './PerfilAplicacoes/menu-perfil-aplicacoes/menu-perfil-aplicacoes.component';
+import { ListaPerfilAplicacoesComponent } from './PerfilAplicacoes/lista-perfil-aplicacoes/lista-perfil-aplicacoes.component';
+import { GerenciarPerfilAplicacoesComponent } from './PerfilAplicacoes/gerenciar-perfil-aplicacoes/gerenciar-perfil-aplicacoes.component';
 
 export const routes: Routes = [
-
     {
         path: '',
         component: HomeComponent
@@ -110,7 +108,6 @@ export const routes: Routes = [
         component: AppListComponent
     },
     {
-<<<<<<< HEAD
         path: 'app-app-menu',
         component: AppMenuComponent
     },
@@ -118,9 +115,7 @@ export const routes: Routes = [
         path: 'modificar-aplicacao/:id',
         component: ModificarAplicacaoComponent
     },
-
-
-=======
+    {
         path: 'per-get-all',
         component: PerGetAllComponent
     },
@@ -139,6 +134,18 @@ export const routes: Routes = [
     {
         path: 'per-hom',
         component: PerHomComponent
+    },
+    { 
+        path: 'menu-perfil-aplicacoes', 
+        component: MenuPerfilAplicacoesComponent
+    },
+    { 
+        path: 'lista-perfil-aplicacoes', 
+        component: ListaPerfilAplicacoesComponent
+    },
+    { 
+        path: 'gerenciar-perfil-aplicacoes', 
+        component: GerenciarPerfilAplicacoesComponent
     }
->>>>>>> 582a7c28dfa07b7fa4d915e88ec6aaa92788d774
+
 ];

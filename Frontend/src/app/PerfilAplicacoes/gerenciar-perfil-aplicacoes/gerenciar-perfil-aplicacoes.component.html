@@ -1,0 +1,53 @@
+<div class="container-menu">
+    <mat-toolbar class="header-container">
+        <div class="header-item" (click)="selectPanel('fabr')">Fábricas</div>
+        <div class="header-item" (click)="selectPanel('user')">Usuários</div>
+        <div class="header-item" (click)="selectPanel('menu')">Menus</div>
+    </mat-toolbar>
+
+    <mat-expansion-panel *ngIf="selectedPanel === 'fabr'" data-panel="fabr">
+        <mat-expansion-panel-header>
+            <mat-checkbox [(ngModel)]="checked"> Fábricas</mat-checkbox>
+
+        </mat-expansion-panel-header>
+
+        <div class="checkbox-filho">
+            <mat-checkbox>Cadastro de Fábrica</mat-checkbox>
+            <mat-checkbox>Lista de Fábricas</mat-checkbox>
+            <mat-checkbox>Editar Fábricas</mat-checkbox>
+        </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngIf="selectedPanel === 'user'" data-panel="user">
+        <mat-expansion-panel-header>
+            <mat-checkbox>Usuários</mat-checkbox>
+        </mat-expansion-panel-header>
+
+        <div class="checkbox-filho">
+            <mat-checkbox>Cadastro de Usuário</mat-checkbox>
+            <mat-checkbox>Lista de Usuários</mat-checkbox>
+            <mat-checkbox>Editar Usuários</mat-checkbox>
+        </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel *ngIf="selectedPanel === 'menu'" data-panel="menu">
+        <mat-expansion-panel-header>
+            <mat-checkbox>Menus</mat-checkbox>
+        </mat-expansion-panel-header>
+
+        <div class="checkbox-filho">
+            <mat-checkbox>Cadastros</mat-checkbox>
+            <mat-checkbox>Remover</mat-checkbox>
+        </div>
+    </mat-expansion-panel>
+
+
+    <div class="button-container">
+        <button mat-button class="save-button">Salvar</button>
+        <button mat-button class="cancel-button">Cancelar</button>
+    </div>
+
+    <button class="menuItem" mat-button routerLink="/menu-perfil-aplicacoes">
+        <span>Voltar</span>
+    </button>
+</div>
