@@ -1,0 +1,14 @@
+<ng-container *ngIf="node.isParent">
+<button class="menuItem" mat-button (click)="toggle()">
+    <span>{{node.nome}}</span>
+    <mat-icon class="mat-icon-rtl-mirror">
+      {{isOpen ? 'expand_less' : 'expand_more'}}
+    </mat-icon>
+</button>
+</ng-container>
+<ng-container *ngIf="!node.isParent">
+    <button class="menuItem subItem" mat-button routerLink="{{node.command}}">
+        <mat-icon style="padding-left: 50px;"> list_alt {{ node.command }}</mat-icon>
+        <span>{{node.nome}}</span>
+      </button>
+</ng-container>

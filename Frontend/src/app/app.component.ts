@@ -15,6 +15,9 @@ import { MatTreeModule } from '@angular/material/tree';
 import { UserService } from './http/services/user/user.service';
 import { Aplicacoes } from './models/aplicacoes';
 import { AppService } from './http/services/aplicacoes/app.service';
+import { PsMenuItemComponent } from './components/ps/ps-menu-item/ps-menu-item.component';
+import { accessDto } from './models/dto/acessoDto';
+import { PerfilAplicacoesService } from './http/services/perfil-aplicacoes/perfil-aplicacoes.service';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
@@ -44,7 +47,7 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink, HttpClientModule, MatToolbarModule,
     MatIconModule, MatButtonModule, MatCardModule, MatSidenavModule, FormsModule, MatTreeModule,
-    MsalModule
+    MsalModule, PsMenuItemComponent
   ],
   providers: [
     {
@@ -60,7 +63,7 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
       provide: MSAL_INTERCEPTOR_CONFIG,
       useFactory: MSALInterceptorConfigFactory,
     },
-    MsalService, UserService, AppService
+    MsalService, UserService, AppService, PerfilAplicacoesService
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -68,7 +71,7 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
 export class AppComponent implements OnInit {
   username?: string = '';
   name?: string = '';
-  
+  acessos = [] as accessDto[];
   isUsersOpen: boolean = false;
   isMillOpen: boolean = false;
   isEduardoOpen: boolean = false;
@@ -77,7 +80,7 @@ export class AppComponent implements OnInit {
   isPerfilOpen: boolean = false;
   isPerfilAplicacoesOpen: boolean = false;
   
-  constructor(private authService: MsalService, private userService: UserService, private AppService : AppService) { }
+  constructor(private authService: MsalService, private userService: UserService, private AppService : AppService, private perfilAplicacoesService: PerfilAplicacoesService) { }
   
   ngOnInit(): void {
     this.initialize();
@@ -94,7 +97,10 @@ export class AppComponent implements OnInit {
   }
 
   async fetch() {
-    await this.userService.userByEmail(this.username).then(promise => promise.subscribe(res => this.name = res.nome))
+    await this.userService.userByEmail(this.username).then(promise => promise.subscribe(res => 
+      {this.name = res.nome
+      this.perfilAplicacoesService.getAcessos(res.idPerfil).then(promise => promise.subscribe(r => this.acessos = r))
+      }))
   }
 
   async initialize() {
@@ -113,6 +119,12 @@ export class AppComponent implements OnInit {
       });
   }
 
+  accessoParents() {
+    return this.acessos.filter(f => f.isParent) 
+  }
+  accessoChild(idParent: number) {
+    return this.acessos.filter(f => f.idParent == idParent) 
+  }
   logout() {
     this.authService.logout()
   }
