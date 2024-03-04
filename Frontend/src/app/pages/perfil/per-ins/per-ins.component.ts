@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-per-ins',
@@ -20,21 +20,19 @@ import { MatCheckboxModule} from '@angular/material/checkbox';
   styleUrl: './per-ins.component.css'
 })
 export class PerInsComponent {
-  isAdicionado : boolean = false;
+  isAdicionado: boolean = false;
   usuario = {} as Perfil;
-  isAdmin : boolean = false;
+  isAdmin: boolean = false;
   constructor(public perfil: PerfilService) {
   }
 
-  criacaoUsuario() {
-    //console.log("Criação de Usuario: ");
-    //console.log(this.usuario.millID)
-    //console.log(this.usuario.shortName)
-    //console.log(this.usuario);
-    //console.log(this.usuario.isAdmin);
+  async criacaoUsuario() {
+    // console.log("Criação de Usuario: ");
+    // console.log(this.usuario);
+    // console.log(this.usuario.isAdmin);
 
     this.usuario.isAdmin = this.isAdmin;
-    this.perfil.createPerfil(this.usuario).then(
+    await this.perfil.createPerfil(this.usuario).then(
       promise => promise.subscribe(
         response => console.log("Usuario criado:", response)
       )
@@ -43,6 +41,5 @@ export class PerInsComponent {
     this.usuario.nome = '';
     this.usuario.descricao = '';
     this.isAdmin = false;
-      }
-
+  }
 }

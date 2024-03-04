@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Perfil } from '../../../models/perfil';
 import { MatSelectModule } from '@angular/material/select';
-import { MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-per-put',
@@ -25,7 +25,7 @@ export class PerPutComponent {
   isAtivo: boolean = false;
   isAlterado: boolean = false;
   isExcluir: boolean = false;
-  isBuscar : boolean = false;
+  isBuscar: boolean = false;
 
   id: number = 0;
 
@@ -37,41 +37,34 @@ export class PerPutComponent {
   }
 
   async buscarUsuario() {
-    //console.log(this.arrayUsers);
-    
+    // console.log(this.arrayUsers);
+
     this.isAtivo = true;
     this.isAlterado = false;
     this.isExcluir = false;
-    
 
-    //console.log(this.usuario);
-  //  console.log(this.id);
+    // console.log(this.usuario);
+    // console.log(this.id);
 
-  
-  
-    
     await this.perfil.getPerfil(this.id).then(
-     promise => promise.subscribe(res => this.usuario = res[0])
-    ) 
-   // console.log(this.usuario);
-    console.log("err:",this.id);
+      promise => promise.subscribe(res => this.usuario = res[0])
+    )
+    // console.log(this.usuario);
+    console.log("err:", this.id);
     console.log(this.usuario.id);
 
     if (await this.usuario.id == undefined) {
       console.log("é falso");
-    //  this.isBuscar = false;
+      //  this.isBuscar = false;
     }
     else {
       console.log("é verdadeiro");
-    //  this.isBuscar = true;
+      //  this.isBuscar = true;
       this.usuario.id = '';
       this.usuario.descricao = '';
       this.usuario.nome = '';
       this.usuario.isAdmin = false;
-      
-   }
-  
-    
+    }
   }
 
   async excluirUsuario() {
@@ -83,7 +76,7 @@ export class PerPutComponent {
     this.isAtivo = false;
     this.isBuscar = false;
     this.isExcluir = true;
-    this.usuario.id = '';        
+    this.usuario.id = '';
   }
 
 
@@ -96,6 +89,4 @@ export class PerPutComponent {
     this.isAlterado = true;
     this.usuario.id = '';
   }
-
-
 }

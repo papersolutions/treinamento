@@ -1,68 +1,66 @@
 <mat-card>
-    <mat-card-header>
-      <mat-card-title>Alterar ou Excluir Perfil</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <form>
-        <mat-form-field>
-          <mat-label>Digitar o ID do Usuario</mat-label>
-          <input matInput [(ngModel)]="id" name="idText" required>
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="buscarUsuario()">Consultar</button>
-  
-      </form>
-    </mat-card-content>
-  </mat-card>
-  <p></p>
-  <div *ngIf="isAlterado" class="msg">
-    Alterado Com Sucesso!
-  </div>
-  <div *ngIf="isExcluir" class="msg">
-    Excluído Com Sucesso!
-  </div>
+  <mat-card-header>
+    <mat-card-title>Alterar ou Excluir Perfil</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <mat-label>Digitar o ID do Usuario</mat-label>
+        <input matInput [(ngModel)]="id" name="idText" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="buscarUsuario()">Consultar</button>
+
+    </form>
+  </mat-card-content>
+</mat-card>
+<p></p>
+<div *ngIf="isAlterado" class="msg">
+  Alterado Com Sucesso!
+</div>
+<div *ngIf="isExcluir" class="msg">
+  Excluído Com Sucesso!
+</div>
 <!--
 <div *ngIf="isBuscar" class="msgver">
   ID Não Encontrado!
 </div>
 -->
-      <mat-card *ngIf="isAtivo">
-      <mat-card-header>
-        <mat-card-title>Resultado</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <form>
-          <mat-form-field>
-            <mat-label>ID</mat-label>
-            <input matInput placeholder="" [(ngModel)]="usuario.id" name="id">
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Perfil Nome</mat-label>
-            <input matInput placeholder="" [(ngModel)]="usuario.nome" name="Nome">
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Perfil Descricao</mat-label>
-            <input matInput placeholder="" [(ngModel)]="usuario.descricao" name="Descricao">
-          </mat-form-field><br />
-          
-            <mat-checkbox [(ngModel)]="usuario.isAdmin" labelPosition="before" name="isAdmin">Administrador</mat-checkbox><br>
-          
-          <button mat-raised-button color="primary" (click)="alterarUsuario()">Alterar</button>ㅤ
-          <button mat-raised-button color="primary" (click)="excluirUsuario()">Excluir</button>
-        </form>
-      </mat-card-content>
-    </mat-card>
-    <p></p>
-    <p align="center">
-      <button mat-raised-button color="primary" routerLink="/per-hom">
-        <span>Voltar</span>
-      </button>
-    </p>
-  
-    <!--
+<mat-card *ngIf="isAtivo">
+  <mat-card-header>
+    <mat-card-title>Resultado</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matInput placeholder="" [(ngModel)]="usuario.id" name="id">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Perfil Nome</mat-label>
+        <input matInput placeholder="" [(ngModel)]="usuario.nome" name="Nome">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Perfil Descricao</mat-label>
+        <input matInput placeholder="" [(ngModel)]="usuario.descricao" name="Descricao">
+      </mat-form-field><br />
+
+      <mat-checkbox [(ngModel)]="usuario.isAdmin" labelPosition="before" name="isAdmin">Administrador</mat-checkbox><br>
+
+      <button mat-raised-button color="primary" (click)="alterarUsuario()">Alterar</button>ㅤ
+      <button mat-raised-button color="primary" (click)="excluirUsuario()">Excluir</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+<p></p>
+<p align="center">
+  <button mat-raised-button color="primary" routerLink="/per-hom">
+    <span>Voltar</span>
+  </button>
+</p>
+
+<!--
     <app-ps-table title="Gestão de Usuário" [dataSource]="arrayUsers" [columnsToDisplay]="['id', 'name', 'login', 'created','modified']"></app-ps-table>
   
     <app-user-alter [idChild]="id" [user]="arrayUsers[0]" [columnsToDisplay]="['id', 'name', 'login', 'created','modified']"></app-user-alter>
   
     -->
-  
-  
