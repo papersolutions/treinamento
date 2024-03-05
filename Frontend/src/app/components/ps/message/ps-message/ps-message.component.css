@@ -1,0 +1,31 @@
+  :host {
+    display: flex;
+  }
+  .info
+  {
+  background-color: gainsboro;
+  color: black;
+  } 
+  .info .mat-button
+  {
+  color: black;
+  } 
+
+  .warning
+  {
+  background-color: yellow;
+  }
+
+  .success
+  {
+  background-color: green;
+  } 
+  .error
+  {
+  background-color: red;
+  color: black;
+  } 
+  .error .mat-button
+  {
+    color: black;
+  } 
