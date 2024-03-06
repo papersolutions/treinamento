@@ -1,4 +1,4 @@
-<div class="container-menu">
+<!-- <div class="container-menu">
     <mat-toolbar class="header-container">
         <div class="header-item" (click)="selectPanel('fabr')">Fábricas</div>
         <div class="header-item" (click)="selectPanel('user')">Usuários</div>
@@ -31,6 +31,27 @@
     </mat-expansion-panel>
 
     <mat-expansion-panel *ngIf="selectedPanel === 'menu'" data-panel="menu">
+       <app-ps-table [dataSource]="usuario" title='Listagem Geral de Perfil' [columnsToDisplay]="['id', 'nome', 'descricao', 'isAdmin']"></app-ps-table> 
+         
+        <mat-expansion-panel-header>
+            <mat-checkbox>Usuários</mat-checkbox>
+        </mat-expansion-panel-header>
+
+        <div class="checkbox-filho">
+            <mat-checkbox>Cadastro de Usuário</mat-checkbox>
+            <mat-checkbox>Lista de Usuários</mat-checkbox>
+            <mat-checkbox>Editar Usuários</mat-checkbox>
+        </div> 
+   
+  
+         <mat-expansion-panel-header>
+            <mat-checkbox>Perfil</mat-checkbox>
+        </mat-expansion-panel-header>
+        <div class="checkbox-filho">
+            <mat-checkbox [(ngModel)]="usuario.id" name="id">Perfil: {{usuario.nome}} É Admin?:{{usuario.isAdmin}} Descrição {{usuario.descricao}} </mat-checkbox>
+        </div>
+    
+      
         <mat-expansion-panel-header>
             <mat-checkbox>Menus</mat-checkbox>
         </mat-expansion-panel-header>
@@ -39,6 +60,8 @@
             <mat-checkbox>Cadastros</mat-checkbox>
             <mat-checkbox>Remover</mat-checkbox>
         </div>
+        
+        
     </mat-expansion-panel>
 
 
@@ -50,4 +73,23 @@
     <button class="menuItem" mat-button routerLink="/menu-perfil-aplicacoes">
         <span>Voltar</span>
     </button>
-</div>
+ </div> -->
+
+ <mat-card>
+    <mat-card-header>
+      <mat-card-title>Procurar Perfil</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+          <mat-form-field>
+            <mat-label>Perfil</mat-label>
+            <mat-select [(ngModel)]="exemplo" name="food">
+              @for (perfilVar of arrayperfilVar; track perfilVar) {
+                <mat-option [value]="perfilVar.id">{{perfilVar.nome}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+           <p>Selected food: {{exemplo}}</p> 
+      </form>
+    </mat-card-content>
+  </mat-card>
