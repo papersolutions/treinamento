@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable} from '@angular/core';
 import { Aplicacoes } from '../../../models/aplicacoes';
 import { environment } from '../../../../environments/environment';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,12 +22,13 @@ export class AppService {
     return this.httpClient.get<Aplicacoes[]>(`${this.url}/${this.version}/aplicacoes`)
   }
 
-  async createAplicacao(mill: Aplicacoes) {
-    return this.httpClient.post(`${this.url}/${this.version}/${this.apiname}`, mill)
+  async createAplicacao(app: Aplicacoes) {
+    return this.httpClient.post(`${this.url}/${this.version}/${this.apiname}`, app)
   }
 
-  async modifyAplicacao(mill: Aplicacoes) {
-    return this.httpClient.put<Aplicacoes>(`${this.url}/${this.version}/${this.apiname}/${mill.id}`, mill);
+  async modifyAplicacao(app: Aplicacoes) {
+    console.log('meu app: ', app);
+    return this.httpClient.put<Aplicacoes>(`${this.url}/${this.version}/${this.apiname}/${app.id}`, app);
   }
 
   async deleteAplicacao(id: number) {

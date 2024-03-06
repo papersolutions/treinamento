@@ -1,19 +1,18 @@
 .criar {
     margin-bottom: 30px;
-    max-width: 300px;
+    max-width: 600px;
     margin: 10px;
     padding: 20px;
     border-radius: 5px;
-    max-height: 340px;
+    max-height: 650px;
     overflow-y: auto;
 }
 
 mat-form-field{
-    width: 300px;
+    width: 400px;
     display: block;
     align-items: center;
 }
-
 
 .container {
     margin: 20px;
@@ -31,7 +30,7 @@ mat-card-header {
 }
 
 mat-card {
-    max-width: 400px;
+    max-width: 600px;
     background-color:  #fff;
     padding: 8px;
     border-radius: 5px;
@@ -43,6 +42,4 @@ mat-card {
     text-align: center;
     align-self: flex-start;
 }
-
-
 

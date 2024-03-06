@@ -26,7 +26,6 @@ import { PerPutComponent } from './pages/perfil/per-put/per-put.component';
 import { PerInsComponent } from './pages/perfil/per-ins/per-ins.component';
 import { PerHomComponent } from './pages/perfil/per-hom/per-hom.component';
 import { MenuPerfilAplicacoesComponent } from './PerfilAplicacoes/menu-perfil-aplicacoes/menu-perfil-aplicacoes.component';
-import { ListaPerfilAplicacoesComponent } from './PerfilAplicacoes/lista-perfil-aplicacoes/lista-perfil-aplicacoes.component';
 import { GerenciarPerfilAplicacoesComponent } from './PerfilAplicacoes/gerenciar-perfil-aplicacoes/gerenciar-perfil-aplicacoes.component';
 
 export const routes: Routes = [
@@ -138,10 +137,6 @@ export const routes: Routes = [
     { 
         path: 'menu-perfil-aplicacoes', 
         component: MenuPerfilAplicacoesComponent
-    },
-    { 
-        path: 'lista-perfil-aplicacoes', 
-        component: ListaPerfilAplicacoesComponent
     },
     { 
         path: 'gerenciar-perfil-aplicacoes', 

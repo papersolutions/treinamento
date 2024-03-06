@@ -6,19 +6,38 @@
                 <form>
                     <div class="modify-itens">
                         <mat-form-field>
-                            <input matInput placeholder="Novo Nome" [(ngModel)]="selectedApp.nome" name="nome">
+                            <label matInput placeholder> Novo Nome</label>
+                            <input matInput [(ngModel)]="selectedApp.nome" name="nome">
                         </mat-form-field>
 
                         <mat-form-field>
-                            <input matInput placeholder="Nova Descrição" [(ngModel)]="selectedApp.descricao"
-                                name="descricao">
+                            <label matInput placeholder> Nova Descrição</label>
+                            <input matInput [(ngModel)]="selectedApp.descricao" name="descricao">
                         </mat-form-field>
 
                         <mat-form-field>
-                            <input matInput placeholder="Novo Command" [(ngModel)]="selectedApp.command" name="command">
+                            <label matInput placeholder> Novo Command</label>
+                            <input matInput [(ngModel)]="selectedApp.command" name="command">
                         </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Novo IdParent</mat-label>
+                            <input matInput [(ngModel)]="selectedApp.idParent" name="idParent">
+                        </mat-form-field>
+                        <mat-checkbox  [(ngModel)]="selectedApp.isParent" name="isParent">
+                            IsParent?
+                        </mat-checkbox>
+                        <!-- <mat-form-field>
+                            <mat-label>IsParent?</mat-label>
+                            <mat-select [(value)]="selected" [(ngModel)]="selectedApp.isParent" name="isParent"
+                                (selectionChange)="handleSelect()">
+                                <mat-option value="true">Verdadeiro</mat-option>
+                                <mat-option value="false">Falso</mat-option>
+                            </mat-select>
+                        </mat-form-field> -->
+
+
                     </div>
-
                     <button mat-raised-button color="primary" (click)="modifyApp()">Modificar</button>
                 </form>
             </mat-card-content>
