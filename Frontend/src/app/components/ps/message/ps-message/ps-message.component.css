@@ -14,7 +14,12 @@
   .warning
   {
   background-color: yellow;
+  color: black;
   }
+  .warning .mat-button
+  {
+  color: black;
+  } 
 
   .success
   {

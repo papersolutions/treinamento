@@ -45,10 +45,10 @@ export class PsMessageService {
     },)
   }
 
-    showMessage(text: string, buttonText = "OK", messageType: "info" | "error" | "success" | "warning") {
+    showMessage(text: string, buttonText = "OK", messageType: "info" | "error" | "success" | "warning", verticalPosition: "bottom" | "top", horizontalPosition: "left" | "center" |"right") {
       this.snackBar.openFromComponent(PsMessageComponent, {
-        horizontalPosition: this.defaultHPos,
-        verticalPosition: this.defaultVPos,
+        horizontalPosition: horizontalPosition,
+        verticalPosition: verticalPosition,
         data: { message: text, buttonText: buttonText, type: messageType },
       },)
   }
