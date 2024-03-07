@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AppService } from '../../http/services/aplicacoes/app.service';
 import { NestedTreeControl } from '@angular/cdk/tree';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 
 interface Menu {
   name: string;
@@ -29,8 +31,8 @@ interface Menu {
 @Component({
   selector: 'app-gerenciar-perfil-apliocacoes',
   standalone: true,
-  imports: [RouterLink, MatCheckboxModule, MatExpansionModule, MatListModule, MatToolbarModule, MatMenuModule, CommonModule, FormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatTreeModule],
-  providers: [PerfilService, PerfilAplicacoesService],
+  imports: [MatCheckboxModule, MatExpansionModule, MatListModule, MatToolbarModule, MatMenuModule, CommonModule, FormsModule,  MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, RouterLink, RouterLink, MatRadioModule, MatSelectModule, MatTreeModule],
+  providers: [PerfilAplicacoesService, PerfilService],
   templateUrl: './gerenciar-perfil-aplicacoes.component.html',
   styleUrl: './gerenciar-perfil-aplicacoes.component.css'
 })
@@ -41,7 +43,15 @@ export class GerenciarPerfilAplicacoesComponent implements OnInit {
   id: number = 0;
   arrayAplicacoes: Aplicacoes[] = [];
   selectedNodes: any[] = [];
+  perfilVar = {} as Perfil;
+  arrayperfilVar: Perfil[] = [];
+  selectedPerfil: any = null;
 
+  selectPerfil(perfil: any) {
+    this.selectedPerfil = perfil;
+  }
+  
+  exemplo: any;
   constructor(
     private perfilAplicacoesService: PerfilAplicacoesService,
     private aplicacoesService: AppService,
@@ -50,9 +60,12 @@ export class GerenciarPerfilAplicacoesComponent implements OnInit {
 
   hasChild = (_: number, node: Menu) => !!node.children && node.children.length > 0;
 
-  
-  ngOnInit(): void {
+
+  async ngOnInit() {
     this.getAllApp();
+    await this.perfilService.getPerfilAllUsers().then(
+      promise => promise.subscribe(response => this.arrayperfilVar = response)
+       )
   }
 
   async getAllApp() {
@@ -65,21 +78,18 @@ export class GerenciarPerfilAplicacoesComponent implements OnInit {
           name: app.nome,
           link: app.command,
           children: resp.filter(parent => parent.idParent == app.id)
-                        .map(p => ({ name: p.nome, link: p.command}))
+            .map(p => ({ name: p.nome, link: p.command }))
         }));
         console.log('menus: ', menus);
 
-         this.dataSource.data = menus;
+        this.dataSource.data = menus;
       },
     });
   }
 
-  async selectPanel(panel: string) {
-    this.selectedPanel = panel;
-    console.log(this.selectedPanel);
-
-    if (this.selectedPanel == 'menu') {
-      await this.perfilAplicacoesService.getPerfilAplicacoes(this.id);
+  selectPanel(panel: string) {
+    if (this.selectedPerfil) {
+      this.selectedPanel = panel;
     }
   }
 
@@ -96,7 +106,7 @@ export class GerenciarPerfilAplicacoesComponent implements OnInit {
       });
     }
   }
-  
+
   isSelected(node: any): boolean {
     return this.selectedNodes.includes(node);
   }

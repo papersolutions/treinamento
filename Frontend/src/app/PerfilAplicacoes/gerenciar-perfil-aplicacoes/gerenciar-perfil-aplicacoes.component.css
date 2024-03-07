@@ -9,15 +9,8 @@
     color: white;
 }
 
-.container-menu {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-}
-
-mat-expansion-panel-header {
+mat-expansion-panel-header,
+mat-label {
     color: #3F51B5;
 }
 
@@ -32,12 +25,33 @@ mat-expansion-panel-header {
     list-style-type: none;
 }
 
-
 .example-tree .mat-nested-tree-node div[role=group] {
     padding-left: 40px;
 }
 
-
 .example-tree div[role=group]>.mat-tree-node {
     padding-left: 40px;
+}
+
+mat-label {
+    font-size: 19px;
+}
+
+mat-form-field {
+    width: 400px;
+}
+
+.container{
+    max-width: 700px;
+    max-height: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    flex-direction: column;
+}
+
+.container-menu{
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
 }
