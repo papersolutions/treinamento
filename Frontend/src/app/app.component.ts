@@ -83,13 +83,15 @@ export class AppComponent implements OnInit {
   constructor(private authService: MsalService, private userService: UserService, private AppService : AppService, private perfilAplicacoesService: PerfilAplicacoesService) { }
   
   ngOnInit(): void {
-    this.initialize();
-    
-    if (this.authService.instance.getActiveAccount() == null) {
-      this.login();
+    this.initialize();  
+    const account = this.authService.instance.getActiveAccount()  
+    if (account != null) {
+      this.username = account.username
+      this.fetch();
     }
-    else {
-      this.username = this.authService.instance.getActiveAccount()?.username
+    else
+    {
+      this.login();
     }
     this.AppService.selectedApp.subscribe((app: Aplicacoes) => {
       this.selectedApp = app;
@@ -116,6 +118,7 @@ export class AppComponent implements OnInit {
       .subscribe((response: AuthenticationResult) => {
         this.authService.instance.setActiveAccount(response.account);
         this.username = response.account.username;
+        this.fetch();
       });
   }
 

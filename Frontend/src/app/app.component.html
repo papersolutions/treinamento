@@ -13,13 +13,12 @@
       <button class="menuItem" mat-icon-button (click)="logout()">
         <mat-icon>logout</mat-icon>
       </button>
-      <button class="menuItem" mat-icon-button (click)="fetch()">
+      <!-- <button class="menuItem" mat-icon-button (click)="fetch()">
         <mat-icon>refresh</mat-icon>
-      </button>
+      </button> -->
     </ng-container>
   </mat-toolbar-row>
 </mat-toolbar>
-
 
 <mat-drawer-container [hasBackdrop]="true">
   <mat-drawer #drawer mode="over" style="min-width: 20%;">
@@ -77,8 +76,6 @@
           </button>
 
         </ng-container>
-
-
 
         <button class="menuItem" mat-button (click)="toggleEduardo()">
           <!-- <mat-icon>kayaking</mat-icon> -->
