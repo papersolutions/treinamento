@@ -4,7 +4,7 @@
     public class Aplicacao
     {
         public int Id { get; set; }
-        public int IdParent { get; set; } //em qual cabeçalho da árvore se encaixa essa app?
+        public int? IdParent { get; set; } //em qual cabeçalho da árvore se encaixa essa app?
         public string Nome { get; set; } = ""; //Nome de exibição
         public string Icon { get; set; } = ""; //Icone de exibição
         public string Descricao { get; set; } = "";//Descrição/tooltip dessa appl. 
