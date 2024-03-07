@@ -1,55 +1,54 @@
 <mat-card>
-    <mat-card-header>
-        <mat-card-title>Gestão de Usuário</mat-card-title> 
-    </mat-card-header>
-    <mat-card-content>
-        <form>
-            <mat-form-field>
-            <mat-label>Digitar o ID do Usuario</mat-label>
-                <input matInput [(ngModel)]="id" name="idText" required="">
-              </mat-form-field>
-            <button mat-raised-button color="primary" (click)="buscarUsuario()">Consultar</button>
-          
-          </form>
-    </mat-card-content>
+  <mat-card-header>
+    <mat-card-title>Gestão de Usuário</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <mat-label>Digitar o ID do Usuario</mat-label>
+        <input matInput [(ngModel)]="id" name="idText" required="">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="buscarUsuario()">Consultar</button>
+
+    </form>
+  </mat-card-content>
 </mat-card>
 <mat-card-content>
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>Resultado</mat-card-title> 
-        </mat-card-header>
-        <mat-card-content>
-    <form>
-    <mat-form-field>
-      <mat-label>ID do Usuario</mat-label>
-      <input matInput placeholder="" [(ngModel)]="users.id" name="id">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Nome</mat-label>
-      <input matInput placeholder="" [(ngModel)]="users.nome" name="nome">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Login</mat-label>
-      <input matInput placeholder="" [(ngModel)]="users.login" name="login" >
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Data da Criação</mat-label>
-      <input matInput placeholder="" [(ngModel)]="users.criado" name="criado" >
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Data da Alteração</mat-label>
-      <input matInput placeholder="" [(ngModel)]="users.alterado" name="alterado" >
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="alterarUsuario()">Alterar</button>
-    <button mat-raised-button color="primary" (click)="excluirUsuario()">Excluir</button>
-    </form>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Resultado</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field>
+          <mat-label>ID do Usuario</mat-label>
+          <input matInput placeholder="" [(ngModel)]="users.id" name="id">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input matInput placeholder="" [(ngModel)]="users.nome" name="nome">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Login</mat-label>
+          <input matInput placeholder="" [(ngModel)]="users.login" name="login">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Data da Criação</mat-label>
+          <input matInput placeholder="" [(ngModel)]="users.criado" name="criado">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Data da Alteração</mat-label>
+          <input matInput placeholder="" [(ngModel)]="users.alterado" name="alterado">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="alterarUsuario()">Alterar</button>
+        <button mat-raised-button color="primary" (click)="excluirUsuario()">Excluir</button>
+      </form>
     </mat-card-content>
-</mat-card>
+  </mat-card>
 
-<!--
+  <!--
 <app-ps-table title="Gestão de Usuário" [dataSource]="arrayUsers" [columnsToDisplay]="['id', 'name', 'login', 'created','modified']"></app-ps-table>
 
 <app-user-alter [idChild]="id" [user]="arrayUsers[0]" [columnsToDisplay]="['id', 'name', 'login', 'created','modified']"></app-user-alter>    
 
 -->
-

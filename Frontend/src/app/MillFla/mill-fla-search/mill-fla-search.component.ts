@@ -22,7 +22,7 @@ export class MillFlaSearchComponent {
     mill: Mill = new Mill();
     id: number = 0;
     arrayMill: Mill[] = [];
-    showUpdateForm: boolean = false; 
+    showUpdateForm: boolean = false;
     selectedMill: Mill = new Mill();
 
     constructor(private millService: MillService) { }
@@ -34,7 +34,7 @@ export class MillFlaSearchComponent {
                 if (this.arrayMill.length > 0) {
                     this.selectedMill = this.arrayMill[0];
                     this.showUpdateForm = false;
-                   // console.log("Buscar: ", this.selectedMill);
+                    // console.log("Buscar: ", this.selectedMill);
                 }
             }
         }));
@@ -51,13 +51,13 @@ export class MillFlaSearchComponent {
         //console.log("Updating: ", this.selectedMill);
         await (await this.millService.modifyMill(this.selectedMill)).subscribe(() => {
             console.log('Mill updated successfully');
-            this.showUpdateForm = false; 
+            this.showUpdateForm = false;
             this.buscarMill();
         });
     }
 
-    abrirForm(){
-        this.showUpdateForm = true; 
+    abrirForm() {
+        this.showUpdateForm = true;
     }
 }
 

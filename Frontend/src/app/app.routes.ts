@@ -9,8 +9,6 @@ import { TesteComponent } from './pages/users/teste/teste.component';
 import { LoginFlaviaComponent } from './UserFla/login-flavia/login-flavia.component';
 import { MillFlaInsertComponent } from './MillFla/mill-fla-insert/mill-fla-insert.component';
 import { MillFlaSearchComponent } from './MillFla/mill-fla-search/mill-fla-search.component';
-import { MillFlaComponent } from './MillFla/mill-fla/mill-fla.component';
-import { MillEduComponent } from './MillEdu/mill-edu/mill-edu.component';
 import { MillEduInsComponent } from './MillEdu/mill-edu-ins/mill-edu-ins.component';
 import { MillEduPutComponent } from './MillEdu/mill-edu-put/mill-edu-put.component';
 import { MillEduGetComponent } from './MillEdu/mill-edu-get/mill-edu-get.component';
@@ -20,13 +18,11 @@ import { AppListComponent } from './Aplicacao/app-list/app-list.component';
 import { DeletarComponent } from './Aplicacao/app-delete/app-delete.component';
 import { PerGetAllComponent } from './pages/perfil/per-get-all/per-get-all.component';
 import { PerGetComponent } from './pages/perfil/per-get/per-get.component';
-import { AppMenuComponent } from './Aplicacao/app-menu/app-menu.component';
 import { ModificarAplicacaoComponent } from './Aplicacao/modificar-aplicacao/app-modify.component';
 import { PerPutComponent } from './pages/perfil/per-put/per-put.component';
 import { PerInsComponent } from './pages/perfil/per-ins/per-ins.component';
-import { PerHomComponent } from './pages/perfil/per-hom/per-hom.component';
-import { MenuPerfilAplicacoesComponent } from './PerfilAplicacoes/menu-perfil-aplicacoes/menu-perfil-aplicacoes.component';
 import { GerenciarPerfilAplicacoesComponent } from './PerfilAplicacoes/gerenciar-perfil-aplicacoes/gerenciar-perfil-aplicacoes.component';
+import { MillListComponent } from './MillFla/mill-list/mill-list.component';
 
 export const routes: Routes = [
     {
@@ -71,12 +67,8 @@ export const routes: Routes = [
         component: MillFlaSearchComponent
     },
     {
-        path: 'mill-fla',
-        component: MillFlaComponent
-    },
-    {
-        path: 'mill-edu',
-        component: MillEduComponent
+        path: 'mill-list',
+        component: MillListComponent
     },
     {
         path: 'mill-edu-ins',
@@ -107,10 +99,6 @@ export const routes: Routes = [
         component: AppListComponent
     },
     {
-        path: 'app-app-menu',
-        component: AppMenuComponent
-    },
-    {
         path: 'modificar-aplicacao/:id',
         component: ModificarAplicacaoComponent
     },
@@ -129,14 +117,6 @@ export const routes: Routes = [
     {
         path: 'per-ins',
         component: PerInsComponent
-    },
-    {
-        path: 'per-hom',
-        component: PerHomComponent
-    },
-    { 
-        path: 'menu-perfil-aplicacoes', 
-        component: MenuPerfilAplicacoesComponent
     },
     { 
         path: 'gerenciar-perfil-aplicacoes', 

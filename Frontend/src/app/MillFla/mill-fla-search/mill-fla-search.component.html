@@ -19,7 +19,7 @@
   <br>
   @if (showUpdateForm){
   <div class="update-form">
-    <mat-card-header> Update Mill</mat-card-header>
+    <mat-card-header> UPDATE MILL </mat-card-header>
     <mat-card-content>
       <mat-form-field>
         <input [(ngModel)]="selectedMill.shortName" name="shortName" matInput placeholder="shortName" required>
@@ -29,14 +29,10 @@
   </div>
   }
 </div>
-<br><br>
-
+<br>
   <div class="table">
-    <app-ps-table class="mill-table" title="Mill Management" [dataSource]="arrayMill"
+    <app-ps-table  title="Mill Management" [dataSource]="arrayMill"
       [columnsToDisplay]="['id', 'millId', 'shortName', 'criado', 'alterado']"></app-ps-table>
   </div>
 
-  <button class="menuItem" mat-button routerLink="/mill-fla">
-    <span>Voltar</span>
-  </button>
 </div> 

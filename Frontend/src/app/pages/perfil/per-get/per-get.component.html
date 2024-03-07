@@ -1,51 +1,45 @@
 <mat-card>
-    <mat-card-header>
-      <mat-card-title>Procurar Perfil</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <form>
-        <mat-form-field>
-          <mat-label>Digitar o ID do Usuario</mat-label>
-          <input matInput [(ngModel)]="id" name="idText" required>
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="buscarUsuario()">Consultar</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
+  <mat-card-header>
+    <mat-card-title>Procurar Perfil</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <mat-label>Digitar o ID do Usuario</mat-label>
+        <input matInput [(ngModel)]="id" name="idText" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="buscarUsuario()">Consultar</button>
+    </form>
+  </mat-card-content>
+</mat-card>
 <p></p>
 <!--
 <div *ngIf="isBuscar" class="msgver">
   ID Não Encontrado!
 </div>
 -->
-    <mat-card *ngIf="isAtivo">
-      <mat-card-header>
-        <mat-card-title>Resultado</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <form>
-          <mat-form-field>
-            <mat-label>ID</mat-label>
-            <input matInput placeholder="" [(ngModel)]="usuario.id" name="id" readonly>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Perfil Nome</mat-label>
-            <input matInput placeholder="" [(ngModel)]="usuario.nome" name="Nome" readonly>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Perfil Descricao</mat-label>
-            <input matInput placeholder="" [(ngModel)]="usuario.descricao" name="Descricao" readonly>
-          </mat-form-field><br />
-          <mat-form-field>
-            <mat-label>Admin?</mat-label>
-             <input matInput [(ngModel)]="usuario.isAdmin" name="isAdmin" readonly>
-          </mat-form-field><br />
-        </form>
-      </mat-card-content>
-    </mat-card>
-    <p></p>
-    <p align="center">
-      <button mat-raised-button color="primary" routerLink="/per-hom">
-        <span>Voltar</span>
-      </button>
-    </p>
+<mat-card *ngIf="isAtivo">
+  <mat-card-header>
+    <mat-card-title>Resultado</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matInput placeholder="" [(ngModel)]="usuario.id" name="id" readonly>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Perfil Nome</mat-label>
+        <input matInput placeholder="" [(ngModel)]="usuario.nome" name="Nome" readonly>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Perfil Descricao</mat-label>
+        <input matInput placeholder="" [(ngModel)]="usuario.descricao" name="Descricao" readonly>
+      </mat-form-field><br />
+      <mat-form-field>
+        <mat-label>Admin?</mat-label>
+        <input matInput [(ngModel)]="usuario.isAdmin" name="isAdmin" readonly>
+      </mat-form-field><br />
+    </form>
+  </mat-card-content>
+</mat-card>

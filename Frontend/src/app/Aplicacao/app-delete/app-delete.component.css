@@ -16,13 +16,6 @@ mat-card {
     background-color: white;
 }
 
-.menuItem {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 80px;
-    text-align: center;
-}
-
 .modify-form {
     flex: 1;
     padding: 20px;

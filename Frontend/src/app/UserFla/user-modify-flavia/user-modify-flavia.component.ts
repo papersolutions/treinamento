@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -17,21 +17,28 @@ import { RouterLink } from '@angular/router';
   templateUrl: './user-modify-flavia.component.html',
   styleUrl: './user-modify-flavia.component.css'
 })
-export class UserModifyFlaviaComponent {
+export class UserModifyFlaviaComponent  {
   id: number = 0;
   user: User = new User();
   arrayUsers: User[] = [];
 
-  async buscarUsuario() {
-    await this.name.getUser(this.id).then(promise => promise.subscribe(retorno => this.arrayUsers = retorno));
-  };
+  constructor(private name: UserService) { }
 
-  excluirUsuario() {
-    this.arrayUsers = [];
-    this.name.deleteUser(this.id).then(promise => promise.subscribe(() => {
-      console.log('User deleted successfully');
+  async buscarUsuario() {
+    await this.name.getUser(this.id).then(promise => promise.subscribe({
+      next: (retorno) => {
+        this.arrayUsers = retorno;
+        if (this.arrayUsers.length > 0) {
+          console.log("Buscar: ", this.user);
+        }
+      }
     }));
   }
-  constructor(private name: UserService) {
+
+  excluirUsuario() {
+    this.name.deleteUser(this.id).then(promise => promise.subscribe(() => {
+      console.log('User deleted successfully');
+      this.buscarUsuario();
+    }));
   }
 }

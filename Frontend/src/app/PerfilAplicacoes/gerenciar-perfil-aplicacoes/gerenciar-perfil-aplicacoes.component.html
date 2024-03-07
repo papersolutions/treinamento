@@ -1,20 +1,18 @@
 <div class="container">
-  <div class="borda">
-    <mat-form-field class="rounded-select">
-      <mat-label>Procurar Perfil:</mat-label>
+  <form>
+    <mat-form-field style="height: 100px">
+      <mat-label>Search Perfil:</mat-label>
       <mat-select [(ngModel)]="selectedPerfil" name="perfil" (selectionChange)="selectPerfil($event.value)">
-        @for (perfilVar of arrayperfilVar; track perfilVar) {
-        <mat-option [value]="perfilVar.id">{{perfilVar.nome}}</mat-option>
-        }
+        <mat-option *ngFor="let perfilVar of arrayperfilVar; let i = index" [value]="perfilVar.id">{{perfilVar.nome}}</mat-option>
       </mat-select>
     </mat-form-field>
-  </div>
+  </form>
 
   @if(selectedPerfil){
   <div class="container-menu">
     <mat-expansion-panel class="header-item" (click)="selectPanel('menu')">
 
-      <mat-expansion-panel-header style="font-size: 19px;">
+      <mat-expansion-panel-header style="font-size: 24px;">
         Menu
       </mat-expansion-panel-header>
 
@@ -49,13 +47,12 @@
     </mat-expansion-panel>
 
     <div class="button-container">
-      <button mat-button class="save-button">Salvar</button>
-      <button mat-button class="cancel-button">Cancelar</button>
+      <button class="menuItem" mat-button routerLink="/menu-perfil-aplicacoes"> Voltar </button>
+      <div class="button-actions">
+        <button mat-button class="save-button">Salvar</button>
+        <button mat-button class="cancel-button">Cancelar</button>
+      </div>
     </div>
-
-    <button class="menuItem" mat-button routerLink="/menu-perfil-aplicacoes">
-      <span>Voltar</span>
-    </button>
   </div>
   }
 </div>

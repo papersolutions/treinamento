@@ -6,13 +6,6 @@
     margin-top: 30px;
 }
 
-.menuItem{
-    margin-top: 40px;
-    width: 80px;
-    align-self: flex-start;
-
-}
-
 mat-card{
     background-color: whitesmoke;
     border-radius: 5px;
