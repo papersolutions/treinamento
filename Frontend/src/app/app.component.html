@@ -60,11 +60,6 @@
           </mat-icon>
         </button>
         <ng-container *ngIf="isMillOpen">
-          <button class="menuItem subItem" mat-button routerLink="/mill-fla" (click)="drawer.toggle()">
-            <mat-icon style="padding-left: 50px;"> home {{ selectedApp.command }}</mat-icon>
-            <span> Home</span>
-          </button>
-
           <button class="menuItem subItem" mat-button routerLink="/mill-fla-insert" (click)="drawer.toggle()">
             <mat-icon style="padding-left: 50px;"> add_box {{ selectedApp.command }}</mat-icon>
             <span> Insert</span>
@@ -85,11 +80,6 @@
           </mat-icon>
         </button>
         <ng-container *ngIf="isEduardoOpen">
-          <button class="menuItem subItem" mat-button routerLink="/mill-edu" (click)="drawer.toggle()">
-            <mat-icon style="padding-left: 50px;"> home {{ selectedApp.command }}</mat-icon>
-            <span> Mill Home</span>
-          </button>
-
           <button class="menuItem subItem" mat-button routerLink="/mill-edu-lis" (click)="drawer.toggle()">
             <mat-icon style="padding-left: 50px;"> list_alt {{ selectedApp.command }}</mat-icon>
             <span> Listagem Geral de Mill</span>
@@ -120,10 +110,6 @@
           </mat-icon>
         </button>
         <ng-container *ngIf="isAppOpen">
-          <button class="menuItem subItem" mat-button routerLink="/app-app-menu" (click)="drawer.toggle()">
-            <span style="padding-left: 50px;"> Menu {{ selectedApp.command }}</span>
-          </button>
-
           <button class="menuItem subItem" mat-button routerLink="/app-form" (click)="drawer.toggle()">
             <span style="padding-left: 50px;"> App Form {{ selectedApp.command }}</span>
           </button>
@@ -144,10 +130,6 @@
           </mat-icon>
         </button>
         <ng-container *ngIf="isPerfilOpen">
-          <button class="menuItem subItem" mat-button routerLink="/per-hom" (click)="drawer.toggle()">
-            <mat-icon style="padding-left: 30px;">foundation</mat-icon>
-            <span>Perfil Home</span>
-          </button>
 
           <button class="menuItem subItem" mat-button routerLink="/per-ins" (click)="drawer.toggle()">
             <mat-icon style="padding-left: 30px;">assignment_add</mat-icon>
@@ -178,11 +160,6 @@
           </mat-icon>
         </button>
         <ng-container *ngIf="isPerfilAplicacoesOpen">
-          <button class="menuItem subItem" mat-button routerLink="/menu-perfil-aplicacoes" (click)="drawer.toggle()">
-            <mat-icon style="padding-left: 30px;">home</mat-icon>
-            <span> Home {{ selectedApp.command }}</span>
-          </button>
-
           <button class="menuItem subItem" mat-button routerLink="/gerenciar-perfil-aplicacoes" (click)="drawer.toggle()">
             <mat-icon style="padding-left: 30px;">lock</mat-icon>
             <span> Gerenciar Perfis {{ selectedApp.command }}</span>
