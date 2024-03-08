@@ -18,6 +18,14 @@ namespace MinimalAPITeste.Controllers
         }
 
         [HttpGet]
+        [Route("appParent")]
+        public async Task<IActionResult> GetAllParentApp([FromServices] AppDbContext contexto)
+        {
+            var allApps = await contexto.Aplicacoes.Where(w => w.IsParent).ToListAsync();
+            return Ok(allApps);
+        }
+
+        [HttpGet]
         [Route("aplicacoes/{id}")]
         public async Task<IActionResult> GetByIDApp([FromServices] AppDbContext context, int id)
         {
