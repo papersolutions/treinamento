@@ -22,5 +22,7 @@ export class PerfilAplicacoesService {
     return this.httpClient.get<accessDto[]>(`${this.url}/api/${this.apiname}/acessosByPerfil/${idPerfil}`);
   }
 
-
+ async definirAcessos(idPerfil: number, Aplicacoes: number[]) {
+    return this.httpClient.post<PerfilAplicacoes[]>(`${this.url}/api/${this.apiname}/setAccess/${idPerfil}`, Aplicacoes);
+  }
 }
