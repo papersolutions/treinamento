@@ -41,6 +41,8 @@ export class AppFormComponent {
     this.aplicacoes.nome = '';
     this.aplicacoes.descricao = '';
     this.aplicacoes.command = '';
+    this.aplicacoes.icon = '';
+
   }
 
   async getApp() {

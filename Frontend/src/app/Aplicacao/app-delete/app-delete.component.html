@@ -1,7 +1,5 @@
 <div class="container">
-    <div class="fundo">
-        <app-selecte-table class="selecte-table" title="Lista de Aplicações" [dataSource]="arrayAplicacoes"
-            [columnsToDisplay]="['id', 'idParent', 'nome', 'descricao', 'command' , 'isParent','actions']"
-            (DeleteEvent)="refresh($event)"></app-selecte-table>
-    </div>
+    <app-selecte-table class="selecte-table" title="Lista de Aplicações" [dataSource]="arrayAplicacoes"
+        [columnsToDisplay]="['id', 'idParent', 'nome', 'descricao', 'icon', 'command' , 'isParent','actions']"
+        (DeleteEvent)="refresh($event)"></app-selecte-table>
 </div>

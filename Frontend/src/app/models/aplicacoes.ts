@@ -5,6 +5,7 @@
     descricao: string;
     isParent: boolean;
     command: string;
+    icon: string;
 
     constructor() {
         this.id = 0;
@@ -13,5 +14,6 @@
         this.descricao  = '';
         this.isParent =false;
         this.command  = '';
+        this.icon = '';
     }
 }

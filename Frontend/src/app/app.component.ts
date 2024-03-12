@@ -76,33 +76,33 @@ export class AppComponent implements OnInit {
   isMillOpen: boolean = false;
   isEduardoOpen: boolean = false;
   isAppOpen: boolean = false;
-  selectedApp: Aplicacoes = new Aplicacoes(); 
+  selectedApp: Aplicacoes = new Aplicacoes();
   isPerfilOpen: boolean = false;
   isPerfilAplicacoesOpen: boolean = false;
-  
-  constructor(private authService: MsalService, private userService: UserService, private AppService : AppService, private perfilAplicacoesService: PerfilAplicacoesService) { }
-  
+
+  constructor(private authService: MsalService, private userService: UserService, private AppService: AppService, private perfilAplicacoesService: PerfilAplicacoesService) { }
+
   ngOnInit(): void {
-    this.initialize();  
-    const account = this.authService.instance.getActiveAccount()  
+    this.initialize();
+    const account = this.authService.instance.getActiveAccount()
     if (account != null) {
       this.username = account.username
       this.fetch();
     }
-    else
-    {
+    else {
       this.login();
     }
     this.AppService.selectedApp.subscribe((app: Aplicacoes) => {
       this.selectedApp = app;
-    }); 
+    });
   }
 
   async fetch() {
-    await this.userService.userByEmail(this.username).then(promise => promise.subscribe(res => 
-      {this.name = res.nome
-      this.perfilAplicacoesService.getAcessos(res.idPerfil).then(promise => promise.subscribe(r => this.acessos = r))
-      }))
+    await this.userService.userByEmail(this.username).then(promise => promise.subscribe(res => {
+      this.name = res.nome
+      
+      this.perfilAplicacoesService.getAcessos(res.idPerfil).then(promise => promise.subscribe(r => {this.acessos = r; console.log('Acessos', r);}))
+    }))
   }
 
   async initialize() {
@@ -123,11 +123,13 @@ export class AppComponent implements OnInit {
   }
 
   accessoParents() {
-    return this.acessos.filter(f => f.isParent) 
+    return this.acessos.filter(f => f.isParent)
   }
+
   accessoChild(idParent: number) {
-    return this.acessos.filter(f => f.idParent == idParent) 
+    return this.acessos.filter(f => f.idParent == idParent)
   }
+  
   logout() {
     this.authService.logout()
   }
@@ -147,14 +149,13 @@ export class AppComponent implements OnInit {
   toggleApp() {
     this.isAppOpen = !this.isAppOpen;
   }
-  
+
   togglePerfil() {
     this.isPerfilOpen = !this.isPerfilOpen;
   }
 
-  togglePerfilAplicacoes(){
+  togglePerfilAplicacoes() {
     this.isPerfilAplicacoesOpen = !this.isPerfilAplicacoesOpen;
-
   }
 }
 

@@ -21,6 +21,11 @@
                         </mat-form-field>
 
                         <mat-form-field>
+                            <label matInput placeholder> Novo Iocn</label>
+                            <input matInput [(ngModel)]="selectedApp.icon" name="icon">
+                        </mat-form-field>
+
+                        <mat-form-field>
                             <mat-label>Novo IdParent</mat-label>
                             <input matInput [(ngModel)]="selectedApp.idParent" name="idParent">
                         </mat-form-field>

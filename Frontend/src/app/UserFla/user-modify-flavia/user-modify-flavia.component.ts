@@ -25,14 +25,14 @@ export class UserModifyFlaviaComponent  {
   constructor(private name: UserService) { }
 
   async buscarUsuario() {
-    await this.name.getUser(this.id).then(promise => promise.subscribe({
-      next: (retorno) => {
+    await this.name.getUser(this.id).then(promise => promise.subscribe(
+       retorno => {
         this.arrayUsers = retorno;
         if (this.arrayUsers.length > 0) {
           console.log("Buscar: ", this.user);
         }
-      }
-    }));
+      },
+    ));
   }
 
   excluirUsuario() {
