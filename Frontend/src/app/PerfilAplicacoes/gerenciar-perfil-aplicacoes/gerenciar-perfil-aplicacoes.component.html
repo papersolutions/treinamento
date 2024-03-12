@@ -13,7 +13,6 @@
   @if(selectedPerfil){
   <div class="container-menu">
     <mat-expansion-panel class="header-item">
-
       <mat-expansion-panel-header style="font-size: 24px;">
         Menu
       </mat-expansion-panel-header>
@@ -21,7 +20,6 @@
       <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
 
-          <!-- <mat-checkbox [checked]="node.checked" (change)="selectNode(node)"></mat-checkbox> -->
           <mat-checkbox [(ngModel)]="node.checked" (change)="updateAllComplete(node)" ></mat-checkbox>
           <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
             <mat-icon class="mat-icon-rtl-mirror">
@@ -33,7 +31,6 @@
 
         <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
           <div class="mat-tree-node">
-            <!-- <mat-checkbox [checked]="node.checked" (change)="selectNode(node)"></mat-checkbox> -->
             <mat-checkbox [(ngModel)]="node.checked" (change)="setAll(node, $event.checked)" [checked]="node.checked" ></mat-checkbox>
             <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
               <mat-icon class="mat-icon-rtl-mirror">
@@ -47,7 +44,6 @@
           </div>
         </mat-nested-tree-node>
       </mat-tree>
-
     </mat-expansion-panel>
 
     <div class="button-container">

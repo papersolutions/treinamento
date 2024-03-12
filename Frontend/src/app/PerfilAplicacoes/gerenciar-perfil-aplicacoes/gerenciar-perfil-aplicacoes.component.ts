@@ -150,7 +150,7 @@ export class GerenciarPerfilAplicacoesComponent implements OnInit {
       next: (resp) => {
         console.log("Applications:", resp);
 
-        let menus = resp.filter(app => app.idParent == null).map(app => ({
+        let menus = resp.filter(app => app.idParent == 0).map(app => ({
           name: app.nome,
           link: app.command,
           id: app.id,
